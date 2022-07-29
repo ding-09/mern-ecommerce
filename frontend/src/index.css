@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap');
 
+:root {
+  --primary-dark-text: rgba(18, 18, 18, 1);
+  --primary-white-bg: rgba(255, 255, 255, 1);
+  --secondary-white-text: rgba(249, 249, 249, 1);
+  --secondary-dark-text: rgba(40, 40, 40, 0.6);
+  --accent-dark: rgba(18, 18, 18, 0.2);
+}
+
 *,
 *::before,
 *::after {
@@ -39,7 +47,6 @@ img {
   max-width: 100%;
 }
 
-input,
 button {
   font-family: inherit;
 }
@@ -50,5 +57,6 @@ li {
 
 a {
   text-decoration: none;
-  color: rgba(18, 18, 18, 1);
+  font-weight: 600;
+  color: var(--primary-dark-text);
 }
