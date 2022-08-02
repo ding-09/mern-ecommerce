@@ -9,7 +9,7 @@ export const GridContainer = styled.div`
   place-items: center;
   background-color: var(--primary-dark-text);
   a, .copyright {
-    color: var(--secondary-white-text);
+    color: var(--primary-white-text);
   }
   .copyright {
     opacity: 0.6;
@@ -17,7 +17,7 @@ export const GridContainer = styled.div`
   }
   svg {
     path {
-      fill: var(--secondary-white-text);
+      fill: var(--primary-white-text);
     }
   }
   .nav-links {

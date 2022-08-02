@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Card from '../../components/cards/home';
+import { HomePage } from './style';
+import homeData from './data';
 
 const Home = () => {
   return (
-    <div>
-      Home Page
-    </div>
-  )
-}
+    <HomePage>
+      {homeData.map((data, index) => (
+        <Card data={data} key={index}/>
+      ))}
+    </HomePage>
+  );
+};
 
-export default Home
+export default Home;
