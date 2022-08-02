@@ -33,7 +33,6 @@ export const Menu = styled.div`
   padding: 1.4rem 2.4rem;
   background-color: var(--primary-white-bg);
   li {
-    margin-bottom: 1.4rem;
     padding-bottom: 0.6rem;
     border-bottom: 1px solid var(--accent-dark);
     a {

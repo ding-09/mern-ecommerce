@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavLinks from '../../components/navlinks'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import { CgClose } from 'react-icons/cg';
@@ -54,20 +55,7 @@ const Header = () => {
         {/* Opened Menu */}
         {menu && (
           <Menu>
-            <ul>
-              <li>
-                <a href='/women'>Women</a>
-              </li>
-              <li>
-                <a href='/men'>Men</a>
-              </li>
-              <li>
-                <a href='/kids'>Kids</a>
-              </li>
-              <li>
-                <a href='/sale'>Sale</a>
-              </li>
-            </ul>
+            <NavLinks/>
           </Menu>
         )}
       </Nav>
