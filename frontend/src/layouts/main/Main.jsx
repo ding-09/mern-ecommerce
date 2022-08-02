@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-const Main = () => {
+const Main = ({ children }) => {
   return (
     <main>
-      Main page
+      {children}
+      <Outlet />
     </main>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
