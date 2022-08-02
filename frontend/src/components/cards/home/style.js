@@ -10,6 +10,11 @@ export const StyledCard = styled.article`
   align-items: center;
   padding-bottom: 5.6rem;
   position: relative;
+  h2,
+  a {
+    position: relative;
+    z-index: 3;
+  }
   h2 {
     margin-bottom: 2rem;
     color: var(--primary-white-text);
@@ -26,6 +31,7 @@ export const StyledCard = styled.article`
   }
   .dark-overlay {
     position: absolute;
+    z-index: 2;
     top: 0;
     bottom: 0;
     left: 0;

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const StyledHeader = styled.header`
   padding: 1.6rem 2.4rem;
   display: flex;
-  border-bottom: 1px solid black;
   position: relative;
+  box-shadow: 0 3rem 4.5rem 0 rgba(0, 0, 0, 0.2);
 `;
 export const Nav = styled.nav`
   display: flex;
@@ -30,11 +30,11 @@ export const Menu = styled.div`
   left: 0;
   right: 0;
   z-index: 99;
-  padding: 1.4rem 2.4rem;
+  padding: 1.6rem 2.4rem 3.2rem;
   background-color: var(--primary-white-bg);
   li {
     padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--accent-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     a {
       color: var(--secondary-dark-text);
     }
