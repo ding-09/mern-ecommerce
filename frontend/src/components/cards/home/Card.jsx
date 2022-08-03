@@ -3,12 +3,12 @@ import { StyledCard } from './style';
 import { Button } from '../../buttons';
 
 const Card = ({ data }) => {
-  const { image, heading } = data;
+  const { image, heading, linkTo } = data;
   return (
     <StyledCard img={image}>
       <div className="dark-overlay"></div>
       <h2>{heading}</h2>
-      <Button text='Shop now' />
+      <Button text='Shop now' linkTo={linkTo}/>
     </StyledCard>
   );
 };
