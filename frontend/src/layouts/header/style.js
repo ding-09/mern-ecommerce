@@ -4,7 +4,7 @@ export const StyledHeader = styled.header`
   padding: 1.6rem 2.4rem;
   display: flex;
   position: relative;
-  box-shadow: 0 3rem 4.5rem 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.2rem 1rem 0 rgba(18, 18, 18, 0.2);
 `;
 export const Nav = styled.nav`
   display: flex;

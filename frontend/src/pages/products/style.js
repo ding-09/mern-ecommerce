@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ProductsPage = styled.section`
-  border: 1px solid red;
   margin-bottom: 4rem;
 `
 export const Header = styled.header`
