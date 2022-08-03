@@ -8,6 +8,7 @@ import Footer from './layouts/footer';
 
 // pages
 import Home from './pages/home'
+import Products from './pages/products'
 
 const App = () => {
   return (
@@ -16,10 +17,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Main />}>
           <Route index element={<Home />} />
-          {/* <Route path='products'>
-            <Route path=':category' element={<ProductsPage />} />
-            <Route path='id/:productId' element={<ProductDetailsPage />} />
-          </Route> */}
+          <Route path='products' element={<Products/>}>
+
+          </Route>
         </Route>
       </Routes>
       <Footer />

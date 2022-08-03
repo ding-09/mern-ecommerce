@@ -20,7 +20,6 @@ export const StyledCard = styled.article`
     color: var(--primary-white-text);
     white-space: pre-line;
     text-align: center;
-    font-size: 2rem;
   }
   a {
     background-color: var(--primary-white-bg);
