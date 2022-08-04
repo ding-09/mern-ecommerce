@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductDetailsPage, ProductInfo, SuggestedItems } from './style';
 import ProductCard from '../../components/cards/products';
-import { Button } from '../../components/buttons';
+import { BorderButton } from '../../components/buttons';
 
 const ProductDetails = () => {
   return (
@@ -17,7 +17,7 @@ const ProductDetails = () => {
         <h2>Product Name</h2>
         <p className='product-price'>$24.99</p>
         <p className='product-desc'>Product description</p>
-        <Button text='Add to bag' linkTo='/cart'/>
+        <BorderButton text='Add to bag' linkTo='/cart'/>
       </ProductInfo>
       <SuggestedItems>
         <h3>You might also like</h3>

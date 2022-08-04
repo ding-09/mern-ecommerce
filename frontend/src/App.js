@@ -10,6 +10,7 @@ import Footer from './layouts/footer';
 import Home from './pages/home';
 import Products from './pages/products';
 import ProductDetails from './pages/product-details';
+import Cart from './pages/cart';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path='sale' element={<Products />} />
             <Route path=':productId' element={<ProductDetails />} />
           </Route>
+          <Route path='cart' element={<Cart />} />
         </Route>
       </Routes>
       <Footer />
