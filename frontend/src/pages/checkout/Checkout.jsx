@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   CheckoutPage,
   Header,
@@ -13,6 +14,8 @@ import OrderSummary from '../../components/order-summary';
 import { BorderButton } from '../../components/buttons';
 
 const Checkout = () => {
+  const navigate = useNavigate();
+
   // toggle billing form
   const [showBilling, setShowBilling] = useState(false);
 
@@ -20,12 +23,23 @@ const Checkout = () => {
     setShowBilling(!showBilling);
   };
 
+  // handle form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('../success', { replace: true });
+  };
+
   return (
     <CheckoutPage>
       <Header>
         <h2>Checkout</h2>
       </Header>
-      <Form method='post'>
+      <Form
+        method='post'
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <FormSection>
           <h3>Contact information</h3>
           <FormGroup>

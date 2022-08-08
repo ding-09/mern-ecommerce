@@ -68,6 +68,7 @@ export const ButtonGroup = styled.section`
     color: var(--primary-white-text);
     font-weight: 600;
     font-size: 1.2rem;
+    cursor: pointer;
   }
   a:last-child {
     background-color: var(--primary-white-bg);
