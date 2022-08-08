@@ -4,11 +4,10 @@ import {
   Header,
   ItemSummary,
   Item,
-  OrderSummary,
-  CostBreakdown,
   ButtonGroup
 } from './style';
 import { BorderButton, Button } from '../../components/buttons';
+import OrderSummary from '../../components/order-summary'
 
 const Cart = () => {
   return (
@@ -38,7 +37,8 @@ const Cart = () => {
           <span className='product-price'>$14.99</span>
         </Item>
       </ItemSummary>
-      <OrderSummary>
+      <OrderSummary />
+      {/* <OrderSummary>
         <Header>
           <h3>Order Summary</h3>
           <span>1 Item(s)</span>
@@ -61,7 +61,7 @@ const Cart = () => {
             <span>$15.98</span>
           </article>
         </CostBreakdown>
-      </OrderSummary>
+      </OrderSummary> */}
       <ButtonGroup>
         <BorderButton text='Checkout' linkTo='/checkout' />
         <BorderButton text='Continue shopping' linkTo='/products' />

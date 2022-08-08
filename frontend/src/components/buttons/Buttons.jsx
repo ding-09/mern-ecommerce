@@ -11,9 +11,9 @@ export const Button = ({ text, linkTo }) => {
   );
 };
 
-export const BorderButton = ({ text, linkTo }) => {
+export const BorderButton = ({ text, linkTo, as='a' }) => {
   return (
-    <StyledBorderButton href={linkTo}>
+    <StyledBorderButton href={linkTo} as={as}>
       <span className='button-text'>{text}</span>
       <BsArrowRightShort />
     </StyledBorderButton>
