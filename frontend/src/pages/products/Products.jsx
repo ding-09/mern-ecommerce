@@ -20,6 +20,10 @@ const Products = () => {
 
   // get location of current page
   const location = useLocation().pathname;
+  
+  // if no category, identify if on /products or /products/sale
+  const current = location.split('/');
+  const heading = current[current.length - 1];
 
   // call useFetch custom hook and pass in category & locationn
   // to accurately fetch data
@@ -28,7 +32,7 @@ const Products = () => {
   return (
     <ProductsPage>
       <Header>
-        <Heading>{category}</Heading>
+        <Heading>{category ? category : heading}</Heading>
         <ItemCount>({productData.length} items)</ItemCount>
       </Header>
       <ProductCards>
