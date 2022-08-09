@@ -1,19 +1,17 @@
-import React from 'react'
-import { StyledProductCard, Figure, ProductName, ProductPrice } from './style'
+import React from 'react';
+import { StyledProductCard, Figure, ProductName, ProductPrice } from './style';
 
-const ProductCard = () => {
+const ProductCard = ({ data }) => {
+  const { image, price, title } = data;
   return (
     <StyledProductCard>
       <Figure>
-        <img
-          src='https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-          alt=''
-        />
+        <img src={image} alt={title} />
       </Figure>
-      <ProductName>Product Name</ProductName>
-      <ProductPrice>$24.99</ProductPrice>
+      <ProductName>{title}</ProductName>
+      <ProductPrice>${price}</ProductPrice>
     </StyledProductCard>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

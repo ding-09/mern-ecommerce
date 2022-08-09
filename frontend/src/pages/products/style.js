@@ -12,6 +12,7 @@ export const Header = styled.header`
 
 export const Heading = styled.h2`
   margin-right: 1rem;
+  text-transform: capitalize;
 `
 
 export const ItemCount = styled.span`
