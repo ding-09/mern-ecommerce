@@ -13,6 +13,9 @@ const CartProvider = ({ children }) => {
   };
 
   // remove item from cart
+  const removeProduct = () => {
+    
+  }
 
   // update cost based on add/remove/update qty
 
