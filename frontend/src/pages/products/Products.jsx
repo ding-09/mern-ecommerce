@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearchParams, useLocation} from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import {
   ProductsPage,
   ProductCards,
@@ -11,7 +11,6 @@ import ProductCard from '../../components/cards/products';
 import useFetch from '../../hooks/useFetch';
 
 const Products = () => {
-
   // useSearchParams hook allows a direct look into the query string
   // instead of the whole URL
   // in this case, we are looking directly for a category
@@ -20,7 +19,7 @@ const Products = () => {
 
   // get location of current page
   const location = useLocation().pathname;
-  
+
   // if no category, identify if on /products or /products/sale
   const current = location.split('/');
   const heading = current[current.length - 1];

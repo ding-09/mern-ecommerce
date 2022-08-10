@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = (category, location) => {
+const useFetch = (category, location, productId) => {
   // initialize empty state fro product data
   const [productData, setProductData] = useState([]);
-
   // fetch data function
   const getData = async () => {
     // diff URL based on args
@@ -12,6 +11,12 @@ const useFetch = (category, location) => {
     if (category) {
       const response = await axios.get(
         `//localhost:8000/products?category=${category}`
+      );
+      const data = await response.data;
+      setProductData(data);
+    } else if (productId) {
+      const response = await axios.get(
+        `//localhost:8000/products/${productId}`
       );
       const data = await response.data;
       setProductData(data);

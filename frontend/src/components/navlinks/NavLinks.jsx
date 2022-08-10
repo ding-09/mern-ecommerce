@@ -5,16 +5,16 @@ const NavLinks = () => {
   return (
     <StyledNavLinks>
       <li>
-        <a href='products?category=women'>Women</a>
+        <a href='/products?category=women'>Women</a>
       </li>
       <li>
-        <a href='products?category=men'>Men</a>
+        <a href='/products?category=men'>Men</a>
       </li>
       <li>
-        <a href='products?category=kids'>Kids</a>
+        <a href='/products?category=kids'>Kids</a>
       </li>
       <li>
-        <a href='products/sale'>Sale</a>
+        <a href='/products/sale'>Sale</a>
       </li>
     </StyledNavLinks>
   );
