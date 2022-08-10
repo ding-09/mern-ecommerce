@@ -3,7 +3,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
-const cors = require('cors')
+const path = require('path');
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db');
 const ExpressError = require('./ExpressError');
@@ -20,6 +21,18 @@ app.use(cors());
 
 // all /products routes are handled here
 app.use('/products', productsRoutes);
+
+// serving frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  // if no API routes are hit, serve frontend
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+    )
+  );
+}
 
 // runs if no other routes are matched
 app.all('*', (req, res, next) => {
