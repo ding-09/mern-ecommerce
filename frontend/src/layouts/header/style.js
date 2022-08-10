@@ -22,6 +22,9 @@ export const Nav = styled.nav`
   .icon {
     font-size: 2.2rem;
   }
+  .bag-icon {
+    position: relative;
+  }
 `;
 
 export const Menu = styled.div`
@@ -39,4 +42,20 @@ export const Menu = styled.div`
       color: var(--secondary-dark-text);
     }
   }
+`;
+
+export const ItemCount = styled.span`
+  position: absolute;
+  left: 50%;
+  bottom: 45%;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: var(--primary-dark-text);
+  color: var(--primary-white-text);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

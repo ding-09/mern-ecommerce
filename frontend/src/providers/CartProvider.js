@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
   // update cost based on add/remove/update qty
 
   // update shopping bag icon
-  const value = { addProduct };
+  const value = { cart, addProduct };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 

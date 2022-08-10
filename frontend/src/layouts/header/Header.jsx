@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import NavLinks from '../../components/navlinks'
+import NavLinks from '../../components/navlinks';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import { CgClose } from 'react-icons/cg';
 import { ReactComponent as Logo } from '../../assets/logos/logo.svg';
-import { StyledHeader, Nav, Menu } from './style';
+import { StyledHeader, Nav, Menu, ItemCount } from './style';
 import { motion } from 'framer-motion';
+import { useCart } from '../../providers/CartProvider';
 
 const Header = () => {
   // toggle menu state
@@ -22,19 +23,12 @@ const Header = () => {
     closed: { opacity: [0, 1] },
   };
 
+  // cart context
+  const { cart } = useCart();
+
   return (
     <StyledHeader>
       <Nav>
-        {/* toggle open/close button based on menu state */}
-        {/* {menu ? (
-          <button className='icon close-icon' aria-label='Close menu' onClick={toggleMenu}>
-            <CgClose />
-          </button>
-        ) : (
-          <button className='icon menu-icon' aria-label='Open menu' onClick={toggleMenu}>
-            <HiOutlineMenuAlt4 />
-          </button>
-        )} */}
         <motion.button
           className='icon menu-icon'
           animate={menu ? 'open' : 'closed'}
@@ -51,11 +45,12 @@ const Header = () => {
         </a>
         <a href='/cart' className='icon bag-icon'>
           <MdOutlineShoppingBag />
+          {cart.length > 0 && <ItemCount>{cart.length}</ItemCount>}
         </a>
         {/* Opened Menu */}
         {menu && (
           <Menu>
-            <NavLinks/>
+            <NavLinks />
           </Menu>
         )}
       </Nav>
