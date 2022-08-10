@@ -9,7 +9,8 @@ const ProductCard = ({ data }) => {
 
   // handle click to open product details
   const handleClick = () => {
-    navigate(`${_id}`);
+    navigate(`/products/${_id}`);
+    window.location.reload();
   };
 
   return (

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useFetch = (category, location, productId) => {
   // initialize empty state fro product data
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(null);
   // fetch data function
   const getData = async () => {
     // diff URL based on args

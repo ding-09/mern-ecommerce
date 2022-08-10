@@ -27,20 +27,22 @@ const Products = () => {
   // call useFetch custom hook and pass in category & locationn
   // to accurately fetch data
   const { productData } = useFetch(category, location);
-
   return (
-    <ProductsPage>
-      <Header>
-        <Heading>{category ? category : heading}</Heading>
-        <ItemCount>({productData.length} items)</ItemCount>
-      </Header>
-      <ProductCards>
-        {productData.length > 0 &&
-          productData.map((data, index) => (
-            <ProductCard data={data} key={index} />
-          ))}
-      </ProductCards>
-    </ProductsPage>
+    <>
+      {productData && (
+        <ProductsPage>
+          <Header>
+            <Heading>{category ? category : heading}</Heading>
+            <ItemCount>({productData.length} items)</ItemCount>
+          </Header>
+          <ProductCards>
+            {productData.map((data, index) => (
+              <ProductCard data={data} key={index} />
+            ))}
+          </ProductCards>
+        </ProductsPage>
+      )}
+    </>
   );
 };
 
