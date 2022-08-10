@@ -15,8 +15,12 @@ export const Figure = styled.figure`
 export const ProductName = styled.h3`
   margin-bottom: 0.6rem;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
 `;
 
 export const ProductPrice = styled.p`
-  font-weight: 500;
+
 `;

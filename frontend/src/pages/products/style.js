@@ -23,7 +23,7 @@ export const ItemCount = styled.span`
 
 export const ProductCards = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem 1.2rem;
-  gap: 1rem 1.2rem;
-`
+  grid-template-columns: repeat(2, minmax(48%, 1fr));
+  grid-gap: 2rem 1.2rem;
+  gap: 2rem 1.2rem;
+`;
