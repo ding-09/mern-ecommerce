@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductDetailsPage, ProductInfo, SuggestedItems } from './style';
 import { BorderButton } from '../../components/buttons';
 import useFetch from '../../hooks/useFetch';
 import SimilarProducts from '../../components/similar-products';
+import { useCart } from '../../providers/CartProvider';
 
 const ProductDetails = () => {
   // read productId from url param and
   // fetch that particular product's data
   const { productId } = useParams();
   const { productData } = useFetch(null, null, productId);
+
+  // use context here to add item to cart
+  const { addProduct } = useCart();
 
   return (
     <>
@@ -22,7 +26,12 @@ const ProductDetails = () => {
             <h2>{productData.title}</h2>
             <p className='product-price'>${productData.price}</p>
             <p className='product-desc'>{productData.description}</p>
-            <BorderButton text='Add to bag' linkTo='#' />
+            <BorderButton
+              text='Add to bag'
+              onClick={() => {
+                addProduct(productData);
+              }}
+            />
           </ProductInfo>
           <SuggestedItems>
             <h3>You might also like</h3>
