@@ -7,6 +7,7 @@ import { ReactComponent as Logo } from '../../assets/logos/logo.svg';
 import { StyledHeader, Nav, Menu, ItemCount } from './style';
 import { motion } from 'framer-motion';
 import { useCart } from '../../providers/CartProvider';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   // toggle menu state
@@ -40,13 +41,13 @@ const Header = () => {
         >
           {menu ? <CgClose /> : <HiOutlineMenuAlt4 />}
         </motion.button>
-        <a href='/'>
+        <Link to='/'>
           <Logo />
-        </a>
-        <a href='/cart' className='icon bag-icon'>
+        </Link>
+        <Link to='cart' className='icon bag-icon'>
           <MdOutlineShoppingBag />
           {cart.length > 0 && <ItemCount>{cart.length}</ItemCount>}
-        </a>
+        </Link>
         {/* Opened Menu */}
         {menu && (
           <Menu>

@@ -4,7 +4,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 
 export const Button = ({ text, linkTo }) => {
   return (
-    <StyledButton href={linkTo}>
+    <StyledButton to={linkTo}>
       <span className='button-text'>{text}</span>
       <BsArrowRightShort />
     </StyledButton>
@@ -13,7 +13,7 @@ export const Button = ({ text, linkTo }) => {
 
 export const BorderButton = ({ text, linkTo, as = 'a', onClick }) => {
   return (
-    <StyledBorderButton href={linkTo} as={as} onClick={onClick}>
+    <StyledBorderButton to={linkTo} as={as} onClick={onClick}>
       <span className='button-text'>{text}</span>
       <BsArrowRightShort />
     </StyledBorderButton>
