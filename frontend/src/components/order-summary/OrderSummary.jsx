@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyledOrderSummary, Header, CostBreakdown } from './style';
+import { useCart } from '../../providers/CartProvider';
 
 const OrderSummary = () => {
+  // calculate order summary based on cart context
+  const { cart } = useCart();
+  
+  const shippingFee = 0.99;
+  
+
   return (
     <StyledOrderSummary>
       <Header>

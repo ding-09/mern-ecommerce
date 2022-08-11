@@ -125,8 +125,8 @@ const Checkout = () => {
         </PaymentSection>
         <OrderSummary />
         <ButtonGroup>
-          <BorderButton as='button' text='Place Order' />
-          <BorderButton text='Back to cart' linkTo='cart' />
+          <BorderButton text='Place Order' linkTo='/success'/>
+          <BorderButton text='Back to cart' linkTo='/cart' />
         </ButtonGroup>
       </Form>
     </CheckoutPage>

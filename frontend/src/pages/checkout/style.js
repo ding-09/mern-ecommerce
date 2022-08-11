@@ -61,14 +61,10 @@ export const BillingGroup = styled.div`
 
 export const ButtonGroup = styled.section`
   margin-bottom: 4rem;
-  button {
-    width: 100%;
+  a:first-child{
     margin-bottom: 2rem;
     background-color: var(--primary-dark-text);
     color: var(--primary-white-text);
-    font-weight: 600;
-    font-size: 1.2rem;
-    cursor: pointer;
   }
   a:last-child {
     background-color: var(--primary-white-bg);

@@ -12,21 +12,11 @@ export const ProductInfo = styled.section`
   .product-desc {
     margin: 2.4rem 0 3.2rem;
   }
-  a {
+  button {
     background-color: var(--primary-dark-text);
     color: var(--primary-white-text);
     border-radius: 0.2rem;
-    position: relative;
-    &:after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--primary-dark-text);
-      border-radius: 0.2rem;
-      position: absolute;
-      left: 0.4rem;
-      top: 0.4rem;
-    }
+    min-width: 100%;
   }
 `;
 

@@ -1,18 +1,21 @@
 import React from 'react';
 import { StyledProductCard, Figure, ProductName, ProductPrice } from './style';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ data }) => {
   const { image, price, title, _id } = data;
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/products/${_id}`);
+    window.location.reload();
+  }
   return (
     <StyledProductCard>
-      <Link to={`/products/${_id}`}>
-        <Figure>
-          <img src={image} alt={title} />
-        </Figure>
-        <ProductName>{title}</ProductName>
-      </Link>
+      <Figure onClick={handleClick}>
+        <img src={image} alt={title} />
+      </Figure>
+      <ProductName onClick={handleClick}>{title}</ProductName>
       <ProductPrice>${price}</ProductPrice>
     </StyledProductCard>
   );

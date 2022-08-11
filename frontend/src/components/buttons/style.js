@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const StyledButton = styled(Link)`
   display: flex;
@@ -30,3 +30,4 @@ export const StyledBorderButton = styled(StyledButton)`
     z-index: -1;
   }
 `;
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton, StyledBorderButton } from './style';
+import { StyledButton, StyledBorderButton} from './style';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 export const Button = ({ text, linkTo }) => {
@@ -11,7 +11,7 @@ export const Button = ({ text, linkTo }) => {
   );
 };
 
-export const BorderButton = ({ text, linkTo, as = 'a', onClick }) => {
+export const BorderButton = ({ as, text, linkTo, onClick}) => {
   return (
     <StyledBorderButton to={linkTo} as={as} onClick={onClick}>
       <span className='button-text'>{text}</span>

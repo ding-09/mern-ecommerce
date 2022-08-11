@@ -27,6 +27,7 @@ const ProductDetails = () => {
             <p className='product-price'>${productData.price}</p>
             <p className='product-desc'>{productData.description}</p>
             <BorderButton
+              as='button'
               text='Add to bag'
               onClick={() => {
                 addProduct(productData);
