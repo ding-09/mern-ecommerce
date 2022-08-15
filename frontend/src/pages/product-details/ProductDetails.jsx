@@ -24,7 +24,7 @@ const ProductDetails = () => {
               <img src={productData.image} alt={productData.title} />
             </figure>
             <h2>{productData.title}</h2>
-            <p className='product-price'>${productData.price}</p>
+            <span className='product-price'>${productData.price}</span>
             <p className='product-desc'>{productData.description}</p>
             <BorderButton
               as='button'

@@ -9,8 +9,11 @@ export const ProductInfo = styled.section`
   h2 {
     margin: 2.4rem 0 0.8rem;
   }
+  .product-price {
+    font-weight: 500;
+  }
   .product-desc {
-    margin: 2.4rem 0 3.2rem;
+    margin: 2rem 0 3.2rem;
   }
   button {
     background-color: var(--primary-dark-text);
