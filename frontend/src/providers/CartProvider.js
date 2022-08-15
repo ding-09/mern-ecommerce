@@ -30,7 +30,7 @@ const CartProvider = ({ children }) => {
       (product) => parseFloat(product.price) * product.qty
     );
     subtotal = subtotal.reduce((prev, next) => (prev += next), 0);
-    let total = (subtotal + order.shippingFee).toFixed(2);
+    let total = (subtotal + order.shippingFee);
 
     setOrder({ ...order, subtotal, total });
   };
@@ -68,11 +68,12 @@ const CartProvider = ({ children }) => {
 
   // update cost based on add/remove/update qty
   const updateProduct = (id, qty) => {
-    cart.forEach((cartProduct) => {
-      if (cartProduct._id === id) {
-        cartProduct.qty = qty;
-      }
-    });
+    console.log(typeof(qty))
+    setCart(
+      cart.map((cartProduct) =>
+        cartProduct._id === id ? { ...cartProduct, qty } : cartProduct
+      )
+    );
   };
 
   // update shopping bag icon

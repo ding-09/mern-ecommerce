@@ -3,21 +3,20 @@ import { StyledOrderSummary, Header, CostBreakdown } from './style';
 import { useCart } from '../../providers/CartProvider';
 
 const OrderSummary = () => {
-  // calculate order summary based on cart context
-  const { cart, order } = useCart();
+  const { totalItems, order } = useCart();
 
   return (
     <>
-      {cart.length > 0 && (
+      {totalItems > 0 && (
         <StyledOrderSummary>
           <Header>
             <h3>Order Summary</h3>
-            <span>{cart.length} Item(s)</span>
+            <span>{totalItems} Item(s)</span>
           </Header>
           <CostBreakdown>
             <article className='subtotal'>
               <p>Items subtotal</p>
-              <span>${order.subtotal}</span>
+              <span>${(order.subtotal).toFixed(2)}</span>
             </article>
             <article className='shipping'>
               <p>Shipping fee</p>
@@ -29,7 +28,7 @@ const OrderSummary = () => {
             </article>
             <article className='total-cost'>
               <p>Total</p>
-              <span>${order.total}</span>
+              <span>${(order.total).toFixed(2)}</span>
             </article>
           </CostBreakdown>
         </StyledOrderSummary>

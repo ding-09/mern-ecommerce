@@ -9,10 +9,13 @@ const CartItem = ({ product }) => {
   const [itemQty, setItemQty] = useState(qty);
 
   const handleChange = (e) => {
-    setItemQty(parseInt(e.target.value));
+    const value = parseInt(e.target.value)
+
+    // update state
+    setItemQty(value);
 
     // adjust qty in cart context
-    updateProduct(_id, itemQty);
+    updateProduct(_id, value);
   };
 
   return (
