@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Item } from './style';
+import { useCart } from '../../providers/CartProvider';
 
 const CartItem = ({ product }) => {
-  const { title, price } = product;
+  const { title, price, qty, _id } = product;
+
+  const { updateProduct, removeProduct } = useCart();
+  const [itemQty, setItemQty] = useState(qty);
+
+  const handleChange = (e) => {
+    setItemQty(parseInt(e.target.value));
+
+    // adjust qty in cart context
+    updateProduct(_id, itemQty);
+  };
+
   return (
     <Item>
       <figure>
@@ -12,9 +24,23 @@ const CartItem = ({ product }) => {
         />
       </figure>
       <p className='product-name'>{title}</p>
-      <button className='remove-btn'>Remove</button>
+      <button
+        className='remove-btn'
+        onClick={() => {
+          removeProduct(_id);
+        }}
+      >
+        Remove
+      </button>
       <div className='quantity-selector'>
-        <select name='quantity' id='quantity'>
+        <select
+          name='quantity'
+          id='quantity'
+          value={itemQty}
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        >
           <option value='1'>1</option>
           <option value='2'>2</option>
           <option value='3'>3</option>
@@ -22,7 +48,7 @@ const CartItem = ({ product }) => {
           <option value='5'>5</option>
         </select>
       </div>
-      <span className='product-price'>${price}</span>
+      <span className='product-price'>${(price * itemQty).toFixed(2)}</span>
     </Item>
   );
 };

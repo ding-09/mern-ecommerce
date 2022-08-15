@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   // cart context
-  const { cart } = useCart();
+  const { totalItems } = useCart();
 
   return (
     <StyledHeader>
@@ -46,7 +46,7 @@ const Header = () => {
         </Link>
         <Link to='cart' className='icon bag-icon'>
           <MdOutlineShoppingBag />
-          {cart.length > 0 && <ItemCount>{cart.length}</ItemCount>}
+          {totalItems > 0 && <ItemCount>{totalItems}</ItemCount>}
         </Link>
         {/* Opened Menu */}
         {menu && (

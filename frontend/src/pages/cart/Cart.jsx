@@ -15,8 +15,8 @@ const Cart = () => {
         <Header>
           <h2>Shopping Bag</h2>
         </Header>
-        {cart.length > 0 && cart.map((item) => (
-          <CartItem product={item} />
+        {cart.length > 0 && cart.map((item, index) => (
+          <CartItem product={item} key={index}/>
         ))}
       </ItemSummary>
       <OrderSummary />
