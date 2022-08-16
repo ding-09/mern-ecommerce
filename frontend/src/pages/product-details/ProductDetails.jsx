@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductDetailsPage, ProductInfo, SuggestedItems } from './style';
 import { BorderButton } from '../../components/buttons';
 import useFetch from '../../hooks/useFetch';
 import SimilarProducts from '../../components/similar-products';
+import CartModal from '../../components/modal';
 import { useCart } from '../../providers/CartProvider';
 
 const ProductDetails = () => {
@@ -14,6 +15,9 @@ const ProductDetails = () => {
 
   // use context here to add item to cart
   const { addProduct } = useCart();
+
+  // state to manage modal
+  const [modal, showModal] = useState(false);
 
   return (
     <>
@@ -31,6 +35,7 @@ const ProductDetails = () => {
               text='Add to bag'
               onClick={() => {
                 addProduct(productData);
+                showModal(true);
               }}
             />
           </ProductInfo>
@@ -41,6 +46,7 @@ const ProductDetails = () => {
               productId={productId}
             />
           </SuggestedItems>
+          <CartModal modal={modal} showModal={showModal}/>
         </ProductDetailsPage>
       )}
     </>
