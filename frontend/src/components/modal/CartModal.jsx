@@ -31,8 +31,8 @@ const CartModal = ({ modal, showModal }) => {
               />
             </Header>
             <CartSummary>
-              {cart.map((cartProduct) => (
-                <CartItem>
+              {cart.map((cartProduct, index) => (
+                <CartItem key={index}>
                   <figure>
                     <img src={cartProduct.image} alt={cartProduct.title} />
                   </figure>
