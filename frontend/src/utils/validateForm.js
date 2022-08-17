@@ -46,6 +46,6 @@ export const handleFormSubmit = (e) => {
       behavior: 'smooth',
     });
   } else {
-    window.location.href = '/success'
+    window.location.replace('/success')
   }
 };
