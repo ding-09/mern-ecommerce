@@ -42,8 +42,25 @@ export const FormGroup = styled.div`
     margin-bottom: 0.4rem;
   }
   input {
+    scroll-margin-top: 3rem;
+    border: 1px solid black;
+    border-radius: 0.2rem;
     min-height: 3rem;
     padding-left: 0.8rem;
+    &:focus:invalid {
+      outline: 1px solid #ff2f2f;
+      border: none;
+    }
+    &:focus:valid {
+      outline: 1px solid #4c956c;
+      border: none;
+    }
+  }
+  .error {
+    padding-top: 0.8rem;
+    display: none;
+    color: #ef233c;
+    font-weight: 500;
   }
 `;
 
@@ -61,7 +78,8 @@ export const BillingGroup = styled.div`
 
 export const ButtonGroup = styled.section`
   margin-bottom: 4rem;
-  a:first-child{
+  button {
+    min-width: 100%;
     margin-bottom: 2rem;
     background-color: var(--primary-dark-text);
     color: var(--primary-white-text);

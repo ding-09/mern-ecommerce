@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   CheckoutPage,
   Header,
@@ -12,21 +11,19 @@ import {
 } from './style';
 import OrderSummary from '../../components/order-summary';
 import { BorderButton } from '../../components/buttons';
+import {
+  validateEmail,
+  validateField,
+  handleFormSubmit,
+} from '../../utils/validateForm';
 
 const Checkout = () => {
-  const navigate = useNavigate();
 
   // toggle billing form
   const [showBilling, setShowBilling] = useState(false);
 
   const handleCheckbox = () => {
     setShowBilling(!showBilling);
-  };
-
-  // handle form
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate('../success', { replace: true });
   };
 
   return (
@@ -36,34 +33,74 @@ const Checkout = () => {
       </Header>
       <Form
         method='post'
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
+        noValidate
+        onSubmit={handleFormSubmit}
+        name='checkoutForm'
       >
         <FormSection>
           <h3>Contact information</h3>
           <FormGroup>
             <label htmlFor='email'>Email *</label>
-            <input type='email' name='email' id='email' />
+            <input
+              type='email'
+              name='email'
+              id='email'
+              required
+              onChange={validateEmail}
+              onBlur={validateEmail}
+            />
+            <span className='error'>Please enter a valid email</span>
           </FormGroup>
           <FormGroup>
             <label htmlFor='phone'>Phone number *</label>
-            <input type='tel' name='phone' id='phone' />
+            <input
+              type='tel'
+              name='phone'
+              id='phone'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
         </FormSection>
         <FormSection>
           <h3>Shipping address</h3>
           <FormGroup>
             <label htmlFor='first-name'>First name *</label>
-            <input type='text' name='first-name' id='first-name' />
+            <input
+              type='text'
+              name='first-name'
+              id='first-name'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
           <FormGroup>
             <label htmlFor='last-name'>Last name *</label>
-            <input type='text' name='last-name' id='last-name' />
+            <input
+              type='text'
+              name='last-name'
+              id='last-name'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
           <FormGroup className='form-group'>
             <label htmlFor='address'>Address *</label>
-            <input type='text' name='address' id='address' />
+            <input
+              type='text'
+              name='address'
+              id='address'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
         </FormSection>
         <FormSection>
@@ -87,7 +124,11 @@ const Checkout = () => {
                   type='text'
                   name='billing-first-name'
                   id='billing-first-name'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
                 />
+                <span className='error'>Please fill out this field</span>
               </FormGroup>
               <FormGroup>
                 <label htmlFor='billing-last-name'>Last name *</label>
@@ -95,7 +136,11 @@ const Checkout = () => {
                   type='text'
                   name='billing-last-name'
                   id='billing-last-name'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
                 />
+                <span className='error'>Please fill out this field</span>
               </FormGroup>
               <FormGroup>
                 <label htmlFor='billing-address'>Address *</label>
@@ -103,7 +148,11 @@ const Checkout = () => {
                   type='text'
                   name='billing-address'
                   id='billing-address'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
                 />
+                <span className='error'>Please fill out this field</span>
               </FormGroup>
             </div>
           )}
@@ -112,20 +161,45 @@ const Checkout = () => {
           <h3>Payment information</h3>
           <FormGroup>
             <label htmlFor='card-num'>Card number *</label>
-            <input type='number' name='card-num' id='card-num' />
+            <input
+              type='number'
+              name='card-num'
+              id='card-num'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
           <FormGroup>
             <label htmlFor='card-exp'>Expiration date *</label>
-            <input type='text' name='card-exp' id='card-exp' maxLength='4' />
+            <input
+              type='text'
+              name='card-exp'
+              id='card-exp'
+              maxLength='4'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
           <FormGroup>
             <label htmlFor='cvv'>CVV *</label>
-            <input type='text' name='cvv' id='cvv' />
+            <input
+              type='text'
+              name='cvv'
+              id='cvv'
+              required
+              onChange={validateField}
+              onBlur={validateField}
+            />
+            <span className='error'>Please fill out this field</span>
           </FormGroup>
         </PaymentSection>
         <OrderSummary />
         <ButtonGroup>
-          <BorderButton text='Place Order' linkTo='/success'/>
+          <BorderButton as='button' type='submit' text='Place Order' />
           <BorderButton text='Back to cart' linkTo='/cart' />
         </ButtonGroup>
       </Form>

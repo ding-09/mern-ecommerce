@@ -11,9 +11,9 @@ export const Button = ({ text, linkTo }) => {
   );
 };
 
-export const BorderButton = ({ as, text, linkTo, onClick}) => {
+export const BorderButton = ({ as, type, text, linkTo, onClick}) => {
   return (
-    <StyledBorderButton to={linkTo} as={as} onClick={onClick}>
+    <StyledBorderButton to={linkTo} as={as} type={type} onClick={onClick}>
       <span className='button-text'>{text}</span>
       <BsArrowRightShort />
     </StyledBorderButton>
