@@ -1,12 +1,17 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  getCart,
+  addToCart,
+  removeFromCart,
+  updateCart,
+} from '../utils/cartStorage';
 
 // create context for Cart
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   // state to keep track of cart
-  const [cart, setCart] = useState([]);
-  // console.log([...new Set(cart)]) this works
+  const [cart, setCart] = useState(getCart());
 
   // state to keep track of total item in cart
   const [totalItems, setTotalItems] = useState(0);
@@ -30,7 +35,7 @@ const CartProvider = ({ children }) => {
       (product) => parseFloat(product.price) * product.qty
     );
     subtotal = subtotal.reduce((prev, next) => (prev += next), 0);
-    let total = (subtotal + order.shippingFee);
+    let total = subtotal + order.shippingFee;
 
     setOrder({ ...order, subtotal, total });
   };
@@ -45,13 +50,13 @@ const CartProvider = ({ children }) => {
   // add item to cart
   const addProduct = (product) => {
     if (cart.length !== 0) {
-      setCart(
-        cart.map((cartProduct) =>
-          cartProduct._id === product._id
-            ? { ...cartProduct, qty: cartProduct.qty + 1 }
-            : cartProduct
-        )
+      let newCart = cart.map((cartProduct) =>
+        cartProduct._id === product._id
+          ? { ...cartProduct, qty: cartProduct.qty + 1 }
+          : cartProduct
       );
+      setCart(newCart);
+      addToCart(newCart);
       return;
     }
     // if there are no matches, that means cart does not contain this item
@@ -62,18 +67,18 @@ const CartProvider = ({ children }) => {
 
   // remove item from cart
   const removeProduct = (id) => {
-    const products = cart.filter((cartProduct) => cartProduct._id !== id);
-    setCart(products);
+    const newCart = cart.filter((cartProduct) => cartProduct._id !== id);
+    setCart(newCart);
+    removeFromCart(newCart);
   };
 
   // update cost based on add/remove/update qty
   const updateProduct = (id, qty) => {
-    console.log(typeof(qty))
-    setCart(
-      cart.map((cartProduct) =>
-        cartProduct._id === id ? { ...cartProduct, qty } : cartProduct
-      )
+    const newCart = cart.map((cartProduct) =>
+      cartProduct._id === id ? { ...cartProduct, qty } : cartProduct
     );
+    setCart(newCart);
+    updateCart(newCart);
   };
 
   // update shopping bag icon
