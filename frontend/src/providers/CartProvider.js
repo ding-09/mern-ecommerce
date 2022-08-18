@@ -16,7 +16,7 @@ const CartProvider = ({ children }) => {
   // state to keep track of total item in cart
   const [totalItems, setTotalItems] = useState(0);
 
-  // state to keep track of whether user checked out or not 
+  // state to keep track of whether user checked out or not
   const [checkedOut, setCheckedOut] = useState(false)
 
   // state to keep track of cost breakdown
@@ -52,20 +52,35 @@ const CartProvider = ({ children }) => {
 
   // add item to cart
   const addProduct = (product) => {
-    if (cart.length !== 0) {
-      let newCart = cart.map((cartProduct) =>
+    // helper function
+    const checkIfProductExists = () => {
+      // return false if cart does not even have any items
+      if (cart.length === 0) {
+        return false;
+      }
+
+      // if cart has items, check if it contains product
+      return cart.some((cartProduct) => cartProduct._id === product._id);
+    };
+
+    // if product exists, update quantity by 1
+    if (checkIfProductExists()) {
+      const updatedCart = cart.map((cartProduct) =>
         cartProduct._id === product._id
           ? { ...cartProduct, qty: cartProduct.qty + 1 }
           : cartProduct
       );
-      setCart(newCart);
-      addToCart(newCart);
-      return;
+      // update context and storage
+      setCart(updatedCart);
+      addToCart(updatedCart);
+    } else {
+      // otherwise, add new product and qty to cart 
+      product.qty = 1;
+
+      // update context and storage
+      setCart([...cart, product]);
+      addToCart([...cart, product]);
     }
-    // if there are no matches, that means cart does not contain this item
-    // add product and qty in
-    product.qty = 1;
-    setCart([...cart, product]);
   };
 
   // remove item from cart
