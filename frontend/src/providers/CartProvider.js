@@ -16,6 +16,9 @@ const CartProvider = ({ children }) => {
   // state to keep track of total item in cart
   const [totalItems, setTotalItems] = useState(0);
 
+  // state to keep track of whether user checked out or not 
+  const [checkedOut, setCheckedOut] = useState(false)
+
   // state to keep track of cost breakdown
   const [order, setOrder] = useState({
     subtotal: 0,
@@ -81,10 +84,11 @@ const CartProvider = ({ children }) => {
     updateCart(newCart);
   };
 
-  // update shopping bag icon
   const value = {
     cart,
     order,
+    checkedOut,
+    setCheckedOut,
     totalItems,
     addProduct,
     removeProduct,

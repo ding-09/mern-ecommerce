@@ -16,14 +16,27 @@ import {
   validateField,
   handleFormSubmit,
 } from '../../utils/validateForm';
+import { useCart } from '../../providers/CartProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
-
   // toggle billing form
   const [showBilling, setShowBilling] = useState(false);
 
+  const { setCheckedOut } = useCart();
+
   const handleCheckbox = () => {
     setShowBilling(!showBilling);
+  };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    const submitted = handleFormSubmit(e);
+    if (submitted) {
+      setCheckedOut(true);
+      navigate('/success', { replace: true });
+    }
   };
 
   return (
@@ -34,7 +47,7 @@ const Checkout = () => {
       <Form
         method='post'
         noValidate
-        onSubmit={handleFormSubmit}
+        onSubmit={handleSubmit}
         name='checkoutForm'
       >
         <FormSection>

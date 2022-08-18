@@ -45,7 +45,8 @@ export const handleFormSubmit = (e) => {
     firstInvalidInput.scrollIntoView({
       behavior: 'smooth',
     });
+    return false;
   } else {
-    window.location.replace('/success')
+    return true;
   }
 };
