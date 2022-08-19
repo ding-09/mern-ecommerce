@@ -20,6 +20,7 @@ export const ProductInfo = styled.section`
     color: var(--primary-white-text);
     border-radius: 0.2rem;
     min-width: 100%;
+    cursor: pointer;
   }
 `;
 

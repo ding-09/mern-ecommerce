@@ -8,6 +8,19 @@ export const ModalBg = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(0.1rem);
+  opacity: 0;
+  animation-name: openModal;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+
+  @keyframes openModal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export const ModalContent = styled.section`
@@ -44,6 +57,7 @@ export const CartSummary = styled.section`
 
 export const CartItem = styled.article`
   display: flex;
+  margin-bottom: 1.6rem;
   figure {
     max-width: 7rem;
   }
