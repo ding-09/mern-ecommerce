@@ -3,6 +3,7 @@ import { BorderButton } from '../../components/buttons';
 import OrderSummary from '../../components/order-summary';
 import { OrderConfirmationPage, Header, OrderNumber, OrderInfo } from './style';
 import { useCart } from '../../providers/CartProvider';
+import { useLocation } from 'react-router-dom';
 
 const OrderConfirmation = () => {
   // only show order confirmation page if user checked out
@@ -11,8 +12,11 @@ const OrderConfirmation = () => {
   // ref to page
   const pageRef = useRef();
 
+  const location = useLocation();
+  const { shippingInfo, billingInfo } = location.state;
+
   useEffect(() => {
-    pageRef.current.scrollIntoView({block: 'start'});
+    pageRef.current.scrollIntoView({ block: 'start' });
   }, []);
 
   return (
@@ -20,30 +24,32 @@ const OrderConfirmation = () => {
       {checkedOut ? (
         <OrderConfirmationPage ref={pageRef}>
           <Header>
-            <h2>Your order has been placed!</h2>
+            <h1>Your order has been placed!</h1>
             <OrderNumber>
               <span>Order #: </span>
               <span>1234567</span>
             </OrderNumber>
             <p>
               You will receive a confirmation e-mail shortly at{' '}
-              <b>email@email.com</b>
+              <b>{shippingInfo.email}</b>
             </p>
           </Header>
           <OrderInfo>
             <section className='shipping-info'>
-              <h3>Shipping</h3>
-              <p>Taro Cai-Ding</p>
-              <p>123 Bear Street</p>
-              <p>661123821</p>
-              <p>taro@gmail.com</p>
+              <h2>Shipping</h2>
+              <p>
+                {shippingInfo.firstName} {shippingInfo.lastName}
+              </p>
+              <p>{shippingInfo.address}</p>
+              <p>{shippingInfo.phone}</p>
+              <p>{shippingInfo.email}</p>
             </section>
             <section className='billing-info'>
-              <h3>Billing</h3>
-              <p>Taro Cai-Ding</p>
-              <p>123 Bear Street</p>
-              <p>661123821</p>
-              <p>taro@gmail.com</p>
+              <h2>Billing</h2>
+              <p>{billingInfo.firstName}</p>
+              <p>{billingInfo.address}</p>
+              <p>{billingInfo.phone}</p>
+              <p>{shippingInfo.email}</p>
             </section>
             <OrderSummary />
           </OrderInfo>

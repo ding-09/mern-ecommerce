@@ -9,8 +9,8 @@ export const OrderConfirmationPage = styled.section`
 
 export const Header = styled.header`
   margin-bottom: 3.2rem;
-  h2 {
-    font-size: 1.4rem;
+  h1 {
+    font-size: 1.6rem;
   }
 `;
 
@@ -22,8 +22,9 @@ export const OrderNumber = styled.p`
 export const OrderInfo = styled.section`
   margin-bottom: 3.2rem;
   > section {
-    h3 {
-      margin-bottom: 0.8rem;
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
     }
     background-color: rgba(217, 217, 217, 0.3);
     border-radius: 0.2rem;

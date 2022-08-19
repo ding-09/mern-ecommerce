@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   CheckoutPage,
   Header,
@@ -13,6 +13,7 @@ import OrderSummary from '../../components/order-summary';
 import { BorderButton } from '../../components/buttons';
 import {
   validateEmail,
+  validateCard,
   validateField,
   handleFormSubmit,
 } from '../../utils/validateForm';
@@ -23,20 +24,64 @@ const Checkout = () => {
   // toggle billing form
   const [showBilling, setShowBilling] = useState(false);
 
-  const { setCheckedOut } = useCart();
-
   const handleCheckbox = () => {
     setShowBilling(!showBilling);
   };
 
+  // ref to hold user data
+  const emailRef = useRef(null);
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const phoneRef = useRef(null);
+  const addressRef = useRef(null);
+
+  // ref to hold billing info if different from shipping
+  const billingFirstNameRef = useRef(null);
+  const billingLastNameRef = useRef(null);
+  const billingAddressRef = useRef(null);
+
+  const { setCheckedOut } = useCart();
+
   const navigate = useNavigate();
 
+  // handle form submission
   const handleSubmit = (e) => {
     const submitted = handleFormSubmit(e);
     if (submitted) {
       setCheckedOut(true);
-      navigate('/success', { replace: true });
+
+      // get ref data
+      const userInfo = getShippingAndBilling();
+
+      navigate('/success', {
+        replace: true,
+        state: userInfo,
+      });
     }
+  };
+
+  const getShippingAndBilling = () => {
+    const shippingInfo = {
+      firstName: firstNameRef.current.value,
+      lastName: lastNameRef.current.value,
+      email: emailRef.current.value,
+      phone: phoneRef.current.value,
+      address: addressRef.current.value,
+    };
+
+    // copy shipping info
+    let billingInfo = { ...shippingInfo };
+
+    // check to see if shipping and billing are the same
+    if (showBilling) {
+      billingInfo = {
+        firstName: billingFirstNameRef.current.value,
+        lastName: billingLastNameRef.current.value,
+        address: billingAddressRef.current.value,
+      };
+    }
+
+    return { shippingInfo, billingInfo };
   };
 
   return (
@@ -61,6 +106,7 @@ const Checkout = () => {
               required
               onChange={validateEmail}
               onBlur={validateEmail}
+              ref={emailRef}
             />
             <span className='error'>Please enter a valid email</span>
           </FormGroup>
@@ -73,6 +119,7 @@ const Checkout = () => {
               required
               onChange={validateField}
               onBlur={validateField}
+              ref={phoneRef}
             />
             <span className='error'>Please fill out this field</span>
           </FormGroup>
@@ -88,6 +135,7 @@ const Checkout = () => {
               required
               onChange={validateField}
               onBlur={validateField}
+              ref={firstNameRef}
             />
             <span className='error'>Please fill out this field</span>
           </FormGroup>
@@ -100,6 +148,7 @@ const Checkout = () => {
               required
               onChange={validateField}
               onBlur={validateField}
+              ref={lastNameRef}
             />
             <span className='error'>Please fill out this field</span>
           </FormGroup>
@@ -112,6 +161,7 @@ const Checkout = () => {
               required
               onChange={validateField}
               onBlur={validateField}
+              ref={addressRef}
             />
             <span className='error'>Please fill out this field</span>
           </FormGroup>
@@ -140,6 +190,7 @@ const Checkout = () => {
                   required
                   onChange={validateField}
                   onBlur={validateField}
+                  ref={billingFirstNameRef}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
@@ -152,6 +203,7 @@ const Checkout = () => {
                   required
                   onChange={validateField}
                   onBlur={validateField}
+                  ref={billingLastNameRef}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
@@ -164,6 +216,7 @@ const Checkout = () => {
                   required
                   onChange={validateField}
                   onBlur={validateField}
+                  ref={billingAddressRef}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
@@ -175,14 +228,19 @@ const Checkout = () => {
           <FormGroup>
             <label htmlFor='card-num'>Card number *</label>
             <input
-              type='number'
+              type='text'
               name='card-num'
               id='card-num'
               required
-              onChange={validateField}
-              onBlur={validateField}
+              onChange={validateCard}
+              onBlur={validateCard}
+              pattern='[0-9]{14,16}'
+              maxLength='16'
             />
             <span className='error'>Please fill out this field</span>
+            <span className='error invalid-card'>
+              Please enter a valid card number
+            </span>
           </FormGroup>
           <FormGroup>
             <label htmlFor='card-exp'>Expiration date *</label>
