@@ -10,6 +10,26 @@ export const validateEmail = (e) => {
   }
 };
 
+export const validateCard = (e) => {
+  const input = e.target;
+  const emptyError = input.nextElementSibling;
+  const cardError = emptyError.nextElementSibling;
+
+  if (input.validity.valueMissing) {
+    emptyError.style.display = 'block';
+    cardError.style.display = 'none';
+    input.style.borderColor = '#ff2f2f';
+  } else if (input.validity.patternMismatch) {
+    cardError.style.display = 'block';
+    emptyError.style.display = 'none';
+    input.style.borderColor = '#ff2f2f';
+  } else {
+    emptyError.style.display = 'none';
+    cardError.style.display = 'none';
+    input.style.borderColor = '#4c956c';
+  }
+};
+
 export const validateField = (e) => {
   const input = e.target;
   const errorMsg = input.nextElementSibling;
