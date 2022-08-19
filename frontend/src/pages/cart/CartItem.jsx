@@ -6,13 +6,9 @@ const CartItem = ({ product }) => {
   const { title, price, qty, _id } = product;
 
   const { updateProduct, removeProduct } = useCart();
-  const [itemQty, setItemQty] = useState(qty);
 
   const handleChange = (e) => {
     const value = parseInt(e.target.value)
-
-    // update state
-    setItemQty(value);
 
     // adjust qty in cart context
     updateProduct(_id, value);
@@ -39,7 +35,7 @@ const CartItem = ({ product }) => {
         <select
           name='quantity'
           id='quantity'
-          value={itemQty}
+          value={qty}
           onChange={(e) => {
             handleChange(e);
           }}
@@ -51,7 +47,7 @@ const CartItem = ({ product }) => {
           <option value='5'>5</option>
         </select>
       </div>
-      <span className='product-price'>${(price * itemQty).toFixed(2)}</span>
+      <span className='product-price'>${(price * qty).toFixed(2)}</span>
     </Item>
   );
 };

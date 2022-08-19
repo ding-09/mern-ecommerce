@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CartPage, Header, ItemSummary, Item, ButtonGroup } from './style';
 import { BorderButton } from '../../components/buttons';
 import OrderSummary from '../../components/order-summary';
@@ -8,16 +8,15 @@ import CartItem from './CartItem';
 const Cart = () => {
   // update bag based on cart using context
   const { cart } = useCart();
-
+  
   return (
     <CartPage>
       <ItemSummary>
         <Header>
           <h2>Shopping Bag</h2>
         </Header>
-        {cart.length > 0 && cart.map((item, index) => (
-          <CartItem product={item} key={index}/>
-        ))}
+        {cart.length > 0 &&
+          cart.map((item, index) => <CartItem product={item} key={index} />)}
       </ItemSummary>
       <OrderSummary />
       <ButtonGroup>
