@@ -14,3 +14,7 @@ export const removeFromCart = (newCart) => {
 export const updateCart = (newCart) => {
   localStorage.setItem('cart', JSON.stringify(newCart));
 };
+
+export const clearStorage = () => {
+  localStorage.clear();
+};

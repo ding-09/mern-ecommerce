@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const OrderConfirmation = () => {
   // only show order confirmation page if user checked out
-  const { checkedOut } = useCart();
+  const { checkedOut, clearCart } = useCart();
 
   // ref to page
   const pageRef = useRef();
@@ -17,6 +17,7 @@ const OrderConfirmation = () => {
 
   useEffect(() => {
     pageRef.current.scrollIntoView({ block: 'start' });
+    clearCart();
   }, []);
 
   return (

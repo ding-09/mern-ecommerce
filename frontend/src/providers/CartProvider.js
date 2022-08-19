@@ -4,6 +4,7 @@ import {
   addToCart,
   removeFromCart,
   updateCart,
+  clearStorage,
 } from '../utils/cartStorage';
 
 // create context for Cart
@@ -99,6 +100,11 @@ const CartProvider = ({ children }) => {
     updateCart(newCart);
   };
 
+  const clearCart = () => {
+    setCart([])
+    clearStorage()
+  }
+
   const value = {
     cart,
     order,
@@ -108,6 +114,7 @@ const CartProvider = ({ children }) => {
     addProduct,
     removeProduct,
     updateProduct,
+    clearCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
