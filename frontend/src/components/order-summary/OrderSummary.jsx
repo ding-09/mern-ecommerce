@@ -16,7 +16,7 @@ const OrderSummary = () => {
           <CostBreakdown>
             <article className='subtotal'>
               <p>Items subtotal</p>
-              <span>${(order.subtotal).toFixed(2)}</span>
+              <span>${order.subtotal.toFixed(2)}</span>
             </article>
             <article className='shipping'>
               <p>Shipping fee</p>
@@ -24,11 +24,11 @@ const OrderSummary = () => {
             </article>
             <article className='tax'>
               <p>Estimated tax</p>
-              <span>TBD</span>
+              <span>${order.tax.toFixed(2)}</span>
             </article>
             <article className='total-cost'>
               <p>Total</p>
-              <span>${(order.total).toFixed(2)}</span>
+              <span>${order.total.toFixed(2)}</span>
             </article>
           </CostBreakdown>
         </StyledOrderSummary>

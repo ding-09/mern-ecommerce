@@ -11,6 +11,8 @@ import {
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+  const TAX_RATE = 0.0825;
+
   // state to keep track of cart
   const [cart, setCart] = useState(getCart());
 
@@ -18,12 +20,13 @@ const CartProvider = ({ children }) => {
   const [totalItems, setTotalItems] = useState(0);
 
   // state to keep track of whether user checked out or not
-  const [checkedOut, setCheckedOut] = useState(false)
+  const [checkedOut, setCheckedOut] = useState(false);
 
   // state to keep track of cost breakdown
   const [order, setOrder] = useState({
     subtotal: 0,
     shippingFee: 0.99,
+    tax: 0,
     total: 0,
   });
 
@@ -39,9 +42,10 @@ const CartProvider = ({ children }) => {
       (product) => parseFloat(product.price) * product.qty
     );
     subtotal = subtotal.reduce((prev, next) => (prev += next), 0);
-    let total = subtotal + order.shippingFee;
+    let tax = subtotal * TAX_RATE;
+    let total = subtotal + order.shippingFee + tax;
 
-    setOrder({ ...order, subtotal, total });
+    setOrder({ ...order, subtotal, total, tax });
   };
 
   // get total items in bag
@@ -75,7 +79,7 @@ const CartProvider = ({ children }) => {
       setCart(updatedCart);
       addToCart(updatedCart);
     } else {
-      // otherwise, add new product and qty to cart 
+      // otherwise, add new product and qty to cart
       product.qty = 1;
 
       // update context and storage
@@ -101,9 +105,9 @@ const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setCart([])
-    clearStorage()
-  }
+    setCart([]);
+    clearStorage();
+  };
 
   const value = {
     cart,

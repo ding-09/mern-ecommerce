@@ -25,7 +25,6 @@ export const ModalBg = styled.div`
 export const ModalContent = styled.section`
   background-color: var(--primary-white-bg);
   padding: 1.8rem 1.8rem 3.2rem;
-  border: 1px solid red;
 `;
 
 export const Header = styled.header`
