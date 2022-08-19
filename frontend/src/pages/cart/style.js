@@ -39,6 +39,7 @@ export const Item = styled.article`
   }
   .product-name {
     grid-area: product;
+    font-size: 1.4rem;
   }
   .remove-btn {
     grid-area: btn;
@@ -64,6 +65,7 @@ export const Item = styled.article`
   .product-price {
     grid-area: price;
     place-self: center end;
+    font-weight: 500;
   }
 `;
 
