@@ -12,7 +12,6 @@ export const ModalBg = styled.div`
   animation-name: openModal;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-
   @keyframes openModal {
     from {
       opacity: 0;
@@ -26,6 +25,7 @@ export const ModalBg = styled.div`
 export const ModalContent = styled.section`
   background-color: var(--primary-white-bg);
   padding: 1.8rem 1.8rem 3.2rem;
+  border: 1px solid red;
 `;
 
 export const Header = styled.header`

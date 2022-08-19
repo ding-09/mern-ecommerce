@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   ModalBg,
   ModalContent,
@@ -14,10 +14,19 @@ import { useCart } from '../../providers/CartProvider';
 
 const CartModal = ({ modal, showModal }) => {
   const { cart } = useCart();
+
+  const modalRef = useRef(null);
+
+  const handleClick = (e) => {
+    // close modal if anything outside of modal content is clicked
+    if (e.target.className === modalRef.current.className) {
+      showModal(false);
+    }
+  };
   return (
     <>
       {modal && (
-        <ModalBg>
+        <ModalBg onClick={handleClick} ref={modalRef}>
           <ModalContent>
             <Header>
               <p>
