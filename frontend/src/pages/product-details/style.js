@@ -27,13 +27,14 @@ export const ProductInfo = styled.section`
 export const SuggestedItems = styled.section`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
   > h3 {
     margin-bottom: 2.4rem;
     flex: 100%;
-    font-weight: 500;
+    font-size: 1.6rem;
   }
   article {
-    flex: 45%;
-    margin: 0 0.6rem;
+    max-width: 16rem;
   }
 `;
