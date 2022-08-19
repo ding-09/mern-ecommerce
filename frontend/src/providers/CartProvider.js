@@ -88,7 +88,7 @@ const CartProvider = ({ children }) => {
   const removeProduct = (id) => {
     const newCart = cart.filter((cartProduct) => cartProduct._id !== id);
     setCart(newCart);
-    removeFromCart(newCart);
+    removeFromCart(id);
   };
 
   // update cost based on add/remove/update qty
