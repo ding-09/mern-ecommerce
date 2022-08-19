@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import {StyledMain} from './style'
+import { StyledMain } from './style';
 
 const Main = ({ children }) => {
-  // check current location's pathname to determine 
-  // appropriate styles 
-  const location = useLocation().pathname; 
+  // check current location's pathname to determine
+  // appropriate styles
+  const location = useLocation().pathname;
+  const pageRef = useRef(null);
+
+  useEffect(() => {
+    pageRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, [location]);
 
   return (
-    <StyledMain location={location}>
+    <StyledMain location={location} ref={pageRef}>
       {children}
       <Outlet />
     </StyledMain>
