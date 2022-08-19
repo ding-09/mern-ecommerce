@@ -6,16 +6,16 @@ const NavLinks = () => {
   return (
     <StyledNavLinks>
       <li>
-        <NavLink to='/products?category=women'>Women</NavLink>
+        <a href='/products?category=women'>Women</a>
       </li>
       <li>
-        <NavLink to='/products?category=men'>Men</NavLink>
+        <a href='/products?category=men'>Men</a>
       </li>
       <li>
-        <NavLink to='/products?category=kids'>Kids</NavLink>
+        <a href='/products?category=kids'>Kids</a>
       </li>
       <li>
-        <NavLink to='/products/sale'>Sale</NavLink>
+        <a href='/products/sale'>Sale</a>
       </li>
     </StyledNavLinks>
   );

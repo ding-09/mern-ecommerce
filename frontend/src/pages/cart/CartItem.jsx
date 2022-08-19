@@ -3,7 +3,7 @@ import { Item } from './style';
 import { useCart } from '../../providers/CartProvider';
 
 const CartItem = ({ product }) => {
-  const { title, price, qty, _id } = product;
+  const { title, price, qty, _id, image } = product;
 
   const { updateProduct, removeProduct } = useCart();
 
@@ -18,8 +18,8 @@ const CartItem = ({ product }) => {
     <Item>
       <figure>
         <img
-          src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80'
-          alt=''
+          src={image}
+          alt={title}
         />
       </figure>
       <p className='product-name'>{title}</p>

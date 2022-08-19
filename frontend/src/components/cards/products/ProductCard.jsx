@@ -8,7 +8,7 @@ const ProductCard = ({ data }) => {
 
   const handleClick = () => {
     navigate(`/products/${_id}`);
-    window.location.reload();
+    navigate(0)
   }
   return (
     <StyledProductCard>

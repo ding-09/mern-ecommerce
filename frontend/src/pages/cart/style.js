@@ -32,8 +32,8 @@ export const Item = styled.article`
   figure {
     grid-area: img;
     img {
-      width: 10rem;
-      height: 10rem;
+      width: 12rem;
+      height: 12rem;
       object-fit: cover;
     }
   }
