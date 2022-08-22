@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useSimilarProducts from '../../hooks/useSimilarProducts';
 import ProductCard from '../../components/cards/products';
 

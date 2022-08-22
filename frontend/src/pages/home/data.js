@@ -1,4 +1,5 @@
 import heroImg from '../../assets/home/hero.jpg';
+import heroTabletImg from '../../assets/home/hero-tablet.jpg';
 import womenImg from '../../assets/home/women.jpg';
 import menImg from '../../assets/home/men.jpg';
 import kidsImg from '../../assets/home/kids.jpg';
@@ -7,7 +8,7 @@ import saleImg from '../../assets/home/sale.jpg';
 const homeData = [
   {
     heading: 'express yourself',
-    image: heroImg,
+    image: { mobile: heroImg, tablet: heroTabletImg },
     linkTo: '/products',
   },
   {

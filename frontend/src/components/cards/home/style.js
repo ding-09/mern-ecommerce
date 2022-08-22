@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledCard = styled.article`
-  background: rgba(0, 0, 0, 0.2) url(${(props) => props.img}) no-repeat;
+  background: rgba(0, 0, 0, 0.2) url(${(props) => typeof props.image === 'object' ? props.image.mobile : props.image}) no-repeat;
   background-size: cover;
+  width: 100%;
   min-height: 45rem;
   display: flex;
   flex-direction: column;
@@ -10,6 +11,7 @@ export const StyledCard = styled.article`
   align-items: center;
   padding-bottom: 5.6rem;
   position: relative;
+  grid-area: ${props => props.gridPos};
   h2,
   a {
     position: relative;
@@ -36,5 +38,12 @@ export const StyledCard = styled.article`
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    background: rgba(0, 0, 0, 0.2) url(${(props) => typeof props.image === 'object' ? props.image.tablet : props.image}) no-repeat;
+    background-size: cover;
+    min-height: 40rem;
   }
 `;
