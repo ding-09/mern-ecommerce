@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer>
       <GridContainer>
-        <a href='/'>
+        <a href='/' className='logo'>
           <Logo />
         </a>
         <div className='nav-links'>
@@ -21,27 +21,27 @@ const Footer = () => {
         <Socials>
           <ul>
             <li>
-              <a href='#'>
+              <a>
                 <TwitterIcon />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a>
                 <FacebookIcon />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a>
                 <InstagramIcon />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a>
                 <PinterestIcon />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a>
                 <YoutubeIcon />
               </a>
             </li>
