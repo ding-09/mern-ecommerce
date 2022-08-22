@@ -35,6 +35,7 @@ export const SuggestedItems = styled.section`
     font-size: 1.6rem;
   }
   article {
-    flex-basis: 46%;
+    flex-basis: 48%;
+    max-width: 48%;
   }
 `;

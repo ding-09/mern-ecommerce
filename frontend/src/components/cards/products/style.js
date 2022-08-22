@@ -8,7 +8,7 @@ export const Figure = styled.figure`
   display: flex;
   justify-content: center;
   margin-bottom: 1.2rem;
-  max-width: 35rem;
+  max-width: 100%;
   cursor: pointer;
 `;
 
