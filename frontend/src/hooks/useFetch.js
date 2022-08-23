@@ -35,7 +35,7 @@ const useFetch = (category, location, productId) => {
   // it won't run into an infinite loop
   useEffect(() => {
     getData();
-  }, []);
+  }, [category, location, productId]);
 
   return { productData };
 };

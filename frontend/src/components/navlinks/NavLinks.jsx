@@ -2,20 +2,29 @@ import React from 'react';
 import { StyledNavLinks } from './style';
 import { NavLink } from 'react-router-dom';
 
-const NavLinks = () => {
+const NavLinks = ({ setMenu }) => {
+
+  // close menu when link is clicked
+  const handleClick = (e) => {
+    let tagName = e.target.tagName;
+    if (tagName.toLowerCase() === 'a') {
+      setMenu(false);
+    }
+  };
+
   return (
-    <StyledNavLinks>
+    <StyledNavLinks onClick={handleClick}>
       <li>
-        <a href='/products?category=women'>Women</a>
+        <NavLink to='products?category=women'>Women</NavLink>
       </li>
       <li>
-        <a href='/products?category=men'>Men</a>
+        <NavLink to='/products?category=men'>Men</NavLink>
       </li>
       <li>
-        <a href='/products?category=kids'>Kids</a>
+        <NavLink to='/products?category=kids'>Kids</NavLink>
       </li>
       <li>
-        <a href='/products/sale'>Sale</a>
+        <NavLink to='/products/sale'>Sale</NavLink>
       </li>
     </StyledNavLinks>
   );

@@ -9,4 +9,8 @@ export const StyledMain = styled.main`
   @media screen and (min-width: 768px) {
     margin: ${(props) => (props.location === '/' ? '' : '4rem')};
   }
+
+  @media screen and (min-width: 1024px) {
+    margin: 4rem 5.6rem;
+  }
 `;

@@ -10,6 +10,10 @@ export const StyledHeader = styled.header`
   @media screen and (min-width: 768px) {
     padding: 1.6rem 4rem;
   }
+
+  @media screen and (min-width: 1024px) {
+    padding: 1.6rem 5.6rem;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -30,6 +34,13 @@ export const Nav = styled.nav`
   }
   .bag-icon {
     position: relative;
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1024px) {
+    .menu-icon {
+      display: ${(props) => (props.showMobileMenu ? 'block' : 'none')};
+    }
   }
 `;
 

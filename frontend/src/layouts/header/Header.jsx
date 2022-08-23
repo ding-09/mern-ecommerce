@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavLinks from '../../components/navlinks';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { MdOutlineShoppingBag } from 'react-icons/md';
@@ -27,9 +27,38 @@ const Header = () => {
   // cart context
   const { totalItems } = useCart();
 
+  // state to toggle between mobile and desktop menu
+  const [showMobileMenu, setShowMobileMenu] = useState(true);
+
+  useEffect(() => {
+
+    // check initial width to correctly show the right nav
+    const initialWidth = window.innerWidth;
+    if (initialWidth >= 1024) {
+      setShowMobileMenu(false);
+    }
+
+    // handle resize 
+    const handleResize = (e) => {
+      let width = e.target.innerWidth;
+      if (width >= 1024) {
+        setMenu(false);
+        setShowMobileMenu(false);
+      } else {
+        setShowMobileMenu(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <StyledHeader>
-      <Nav>
+      <Nav showMobileMenu={showMobileMenu}>
         <motion.button
           className='icon menu-icon'
           animate={menu ? 'open' : 'closed'}
@@ -44,6 +73,7 @@ const Header = () => {
         <Link to='/'>
           <Logo />
         </Link>
+        {!showMobileMenu && <NavLinks />}
         <Link to='cart' className='icon bag-icon'>
           <MdOutlineShoppingBag />
           {totalItems > 0 && <ItemCount>{totalItems}</ItemCount>}
@@ -51,7 +81,7 @@ const Header = () => {
         {/* Opened Menu */}
         {menu && (
           <Menu>
-            <NavLinks />
+            <NavLinks setMenu={setMenu} />
           </Menu>
         )}
       </Nav>

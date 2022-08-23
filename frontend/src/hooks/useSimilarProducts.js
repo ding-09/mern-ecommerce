@@ -23,7 +23,7 @@ const useSimilarProducts = (category, productId) => {
 
   useEffect(() => {
     getSimilarProducts();
-  }, []);
+  }, [productId]);
 
   return [similarProducts];
 };
