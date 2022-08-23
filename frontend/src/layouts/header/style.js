@@ -5,7 +5,13 @@ export const StyledHeader = styled.header`
   display: flex;
   position: relative;
   box-shadow: 0 0.2rem 1rem 0 rgba(18, 18, 18, 0.2);
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    padding: 1.6rem 4rem;
+  }
 `;
+
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;

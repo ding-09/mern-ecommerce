@@ -28,7 +28,6 @@ export const StyledCard = styled.article`
     color: var(--primary-dark-text);
     border: 1px solid var(--primary-dark-text);
     border-radius: 0.2rem;
-    width: 14rem;
   }
   .dark-overlay {
     position: absolute;

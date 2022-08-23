@@ -27,17 +27,19 @@ const ProductDetails = () => {
             <figure>
               <img src={productData.image} alt={productData.title} />
             </figure>
-            <h2>{productData.title}</h2>
-            <span className='product-price'>${productData.price}</span>
-            <p className='product-desc'>{productData.description}</p>
-            <BorderButton
-              as='button'
-              text='Add to bag'
-              onClick={() => {
-                addProduct(productData);
-                showModal(true);
-              }}
-            />
+            <div className='product-details'>
+              <h2 className='product-title'>{productData.title}</h2>
+              <span className='product-price'>${productData.price}</span>
+              <p className='product-desc'>{productData.description}</p>
+              <BorderButton
+                as='button'
+                text='Add to bag'
+                onClick={() => {
+                  addProduct(productData);
+                  showModal(true);
+                }}
+              />
+            </div>
           </ProductInfo>
           <SuggestedItems>
             <h3>You might also like</h3>
@@ -46,7 +48,7 @@ const ProductDetails = () => {
               productId={productId}
             />
           </SuggestedItems>
-          <CartModal modal={modal} showModal={showModal}/>
+          <CartModal modal={modal} showModal={showModal} />
         </ProductDetailsPage>
       )}
     </>

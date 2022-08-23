@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 export const ProductDetailsPage = styled.section`
   margin-bottom: 6.4rem;
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 export const ProductInfo = styled.section`
@@ -22,6 +27,30 @@ export const ProductInfo = styled.section`
     min-width: 100%;
     cursor: pointer;
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    figure {
+      flex: 60%;
+      margin-right: 2.4rem;
+    }
+    .product-details {
+      flex: 40%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      position: sticky;
+      top: 2.4rem;
+      h2 {
+        margin: 0 0 2rem;
+      }
+      .product-desc {
+        margin: 2rem 0 4.8rem;
+      }
+    }
+  }
 `;
 
 export const SuggestedItems = styled.section`
@@ -37,5 +66,19 @@ export const SuggestedItems = styled.section`
   article {
     flex-basis: 48%;
     max-width: 48%;
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    > h3 {
+      font-size: 1.8rem;
+    }
+    article {
+      figure {
+        img {
+          max-height: 50rem;
+        }
+      }
+    }
   }
 `;
