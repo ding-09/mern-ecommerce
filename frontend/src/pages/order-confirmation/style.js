@@ -12,6 +12,13 @@ export const Header = styled.header`
   h1 {
     font-size: 1.6rem;
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 export const OrderNumber = styled.p`
@@ -31,5 +38,15 @@ export const OrderInfo = styled.section`
     margin-bottom: 2rem;
     padding: 1.2rem;
     line-height: 2rem;
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    > section {
+      h2 {
+        font-size: 1.6rem;
+      }
+      padding: 1.6rem 2.4rem;
+    }
   }
 `;

@@ -25,6 +25,11 @@ export const ModalBg = styled.div`
 export const ModalContent = styled.section`
   background-color: var(--primary-white-bg);
   padding: 1.8rem 1.8rem 3.2rem;
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    padding: 2.4rem 2.4rem 4rem;
+  }
 `;
 
 export const Header = styled.header`
@@ -48,6 +53,21 @@ export const Header = styled.header`
       font-size: 1.4rem;
     }
   }
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 3.2rem;
+    > svg {
+      font-size: 2rem;
+    }
+    p {
+      svg {
+        font-size: 1.6rem;
+      }
+      span {
+        font-size: 1.6rem;
+      }
+    }
+  }
 `;
 
 export const CartSummary = styled.section`
@@ -66,6 +86,14 @@ export const CartItem = styled.article`
     flex-direction: column;
     .quantity {
       margin-bottom: auto;
+    }
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2.4rem;
+    figure {
+      max-width: 8rem;
     }
   }
 `;

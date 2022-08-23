@@ -19,7 +19,7 @@ export const ItemSummary = styled.section`
 `;
 
 export const Item = styled.article`
-  padding: 1.4rem 0;
+  padding: 1.6rem 0;
   display: grid;
   grid-template-areas:
     'img product product product'
@@ -40,6 +40,7 @@ export const Item = styled.article`
   .product-name {
     grid-area: product;
     font-size: 1.4rem;
+    font-weight: 500;
   }
   .remove-btn {
     grid-area: btn;
@@ -48,6 +49,7 @@ export const Item = styled.article`
     background: none;
     color: rgba(53, 119, 218, 1);
     font-size: 1.1rem;
+    cursor: pointer;
   }
   .quantity-selector {
     grid-area: selector;
@@ -67,6 +69,19 @@ export const Item = styled.article`
     place-self: center end;
     font-weight: 500;
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    .remove-btn {
+      font-size: 1.2rem;
+    }
+    .quantity-selector {
+      select {
+        min-width: 8.6rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
 `;
 
 export const OrderSummary = styled.section`
@@ -76,20 +91,6 @@ export const OrderSummary = styled.section`
     font-size: 1.4rem;
   }
   margin-bottom: 4.8rem;
-`;
-
-export const CostBreakdown = styled.section`
-  > article {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.2rem;
-  }
-  .total-cost {
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 500;
-    font-size: 1.4rem;
-  }
 `;
 
 export const ButtonGroup = styled.section`

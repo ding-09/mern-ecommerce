@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CartPage, Header, ItemSummary, Item, ButtonGroup } from './style';
+import { CartPage, Header, ItemSummary, ButtonGroup } from './style';
 import { BorderButton } from '../../components/buttons';
 import OrderSummary from '../../components/order-summary';
 import { useCart } from '../../providers/CartProvider';

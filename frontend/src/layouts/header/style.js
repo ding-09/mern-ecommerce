@@ -48,6 +48,11 @@ export const Menu = styled.div`
       color: var(--secondary-dark-text);
     }
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    padding: 2rem 4.8rem 4rem;
+  }
 `;
 
 export const ItemCount = styled.span`
