@@ -52,7 +52,12 @@ export const GridContainer = styled.div`
     }
     .copyright {
       grid-area: copyright;
+      font-size: 1.2rem;
     }
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 6rem;
   }
 `;
 
