@@ -97,9 +97,17 @@ export const ButtonGroup = styled.section`
   display: flex;
   flex-direction: column;
   a:first-child {
-    background-color: var(--primary-dark-text);
-    color: var(--primary-white-text);
     margin-bottom: 2rem;
+    background-color: ${(props) =>
+      props.disableButton ? '#d3d3d3' : 'var(--primary-dark-text)'};
+    color: ${(props) =>
+      props.disableButton ? 'rgba(0, 0, 0, 0.2)' : 'var(--primary-white-text)'};
+    border: ${(props) => props.disableButton && '1px solid rgba(0, 0, 0, 0.4)'};
+    &:after {
+      border: ${(props) =>
+        props.disableButton && '1px solid rgba(0, 0, 0, 0.4)'};
+    }
+    pointer-events: ${props => props.disableButton ? 'none' : 'default'}
   }
   a:last-child {
     background-color: var(--primary-white-bg);
