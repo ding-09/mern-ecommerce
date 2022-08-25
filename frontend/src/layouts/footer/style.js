@@ -63,7 +63,7 @@ export const GridContainer = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 6rem 8rem;
+    padding: 6rem 10rem;
   }
 
   @media screen and (min-width: 1400px) {

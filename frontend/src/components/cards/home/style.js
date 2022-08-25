@@ -18,7 +18,7 @@ export const StyledCard = styled.article`
     z-index: 3;
   }
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 2.4rem;
     color: var(--primary-white-text);
     white-space: pre-line;
     text-align: center;

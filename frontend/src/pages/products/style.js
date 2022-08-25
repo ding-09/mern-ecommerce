@@ -34,6 +34,7 @@ export const ProductCards = styled.section`
   }
 
   @media screen and (min-width: 1200px) {
-    gap: 3.2rem 2.4rem;
+    gap: 4rem 2rem;
+    grid-template-columns: repeat(4, minmax(20%, 1fr));
   }
 `;

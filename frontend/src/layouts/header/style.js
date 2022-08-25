@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 1.6rem 8rem;
+    padding: 1.6rem 10rem;
   }
 
   @media screen and (min-width: 1400px) {
@@ -48,6 +48,9 @@ export const Nav = styled.nav`
   @media screen and (min-width: 1024px) {
     .menu-icon {
       display: ${(props) => (props.showMobileMenu ? 'block' : 'none')};
+    }
+    .bag-icon {
+      font-size: 2.4rem;
     }
   }
 `;
@@ -88,4 +91,11 @@ export const ItemCount = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1024px) {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.9rem;
+  }
 `;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import useSimilarProducts from '../../hooks/useSimilarProducts';
 import ProductCard from '../../components/cards/products';
 
 const SimilarProducts = ({ category, productId }) => {
   const [similarProducts] = useSimilarProducts(category, productId);
+  
+
   return (
     <>
       {similarProducts.length > 0 && (

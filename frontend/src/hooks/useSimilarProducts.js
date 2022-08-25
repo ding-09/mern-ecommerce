@@ -13,11 +13,12 @@ const useSimilarProducts = (category, productId) => {
     const similar = [];
 
     // get 2 random products
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       let rand = Math.floor(Math.random() * products.length);
       similar.push(products[rand])
       products.splice(rand, 1)
     }
+
     setSimilarProducts(similar);
   };
 
