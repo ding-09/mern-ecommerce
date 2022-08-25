@@ -70,11 +70,11 @@ const Header = () => {
         >
           {menu ? <CgClose /> : <HiOutlineMenuAlt4 />}
         </motion.button>
-        <Link to='/'>
+        <Link to='/' aria-label='Site logo'>
           <Logo />
         </Link>
         {!showMobileMenu && <NavLinks />}
-        <Link to='cart' className='icon bag-icon'>
+        <Link to='cart' className='icon bag-icon' aria-label='Shopping bag icon'>
           <MdOutlineShoppingBag />
           {totalItems > 0 && <ItemCount>{totalItems}</ItemCount>}
         </Link>

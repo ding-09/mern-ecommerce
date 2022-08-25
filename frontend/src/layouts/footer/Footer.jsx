@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer>
       <GridContainer>
-        <a href='/' className='logo'>
+        <a href='/' className='logo' aria-label='Site logo'>
           <Logo />
         </a>
         <div className='nav-links'>
@@ -21,27 +21,27 @@ const Footer = () => {
         <Socials>
           <ul>
             <li>
-              <a>
+              <a aria-label='Placeholder Twitter icon'>
                 <TwitterIcon />
               </a>
             </li>
             <li>
-              <a>
+              <a aria-label='Placeholder Facebook icon'>
                 <FacebookIcon />
               </a>
             </li>
             <li>
-              <a>
+              <a aria-label='Placeholder Instagram icon'>
                 <InstagramIcon />
               </a>
             </li>
             <li>
-              <a>
+              <a aria-label='Placeholder Pinterest icon'>
                 <PinterestIcon />
               </a>
             </li>
             <li>
-              <a>
+              <a aria-label='Placeholder Twitter icon'>
                 <YoutubeIcon />
               </a>
             </li>
