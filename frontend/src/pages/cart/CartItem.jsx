@@ -35,7 +35,7 @@ const CartItem = ({ product }) => {
         <select
           name='quantity'
           id='quantity'
-          value={qty}
+          value={qty > 5 ? '5+' : qty}
           onChange={(e) => {
             handleChange(e);
           }}
@@ -45,6 +45,7 @@ const CartItem = ({ product }) => {
           <option value='3'>3</option>
           <option value='4'>4</option>
           <option value='5'>5</option>
+          <option value='5+' disabled>5 +</option>
         </select>
       </div>
       <span className='product-price'>${(price * qty).toFixed(2)}</span>
