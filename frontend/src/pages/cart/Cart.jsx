@@ -21,10 +21,10 @@ const Cart = () => {
 
   return (
     <CartPage>
+      <Header>
+        <h2>Shopping Bag</h2>
+      </Header>
       <ItemSummary>
-        <Header>
-          <h2>Shopping Bag</h2>
-        </Header>
         {cart.length > 0 ? (
           cart.map((item, index) => <CartItem product={item} key={index} />)
         ) : (

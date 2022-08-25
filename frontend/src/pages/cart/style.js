@@ -2,6 +2,21 @@ import styled from 'styled-components';
 
 export const CartPage = styled.section`
   margin-bottom: 5.6rem;
+
+  @media screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'itemSummary orderSummary'
+      'itemSummary buttonGroup';
+    grid-template-columns: 2fr 1.5fr;
+    gap: 0 4.8rem;
+    > section:nth-child(3) {
+      background-color: rgba(217, 217, 217, 0.3);
+      padding: 1.6rem;
+      margin-top: 2rem;
+    }
+  }
 `;
 
 export const Header = styled.header`
@@ -9,12 +24,20 @@ export const Header = styled.header`
   justify-content: space-between;
   padding-bottom: 1.2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    grid-area: header;
+  }
 `;
 
 export const ItemSummary = styled.section`
-  margin-bottom: 5.6rem;
-  header {
-    margin-bottom: 2rem;
+  margin: 1.2rem 0 3.2rem;
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    grid-area: itemSummary;
+    margin: 0;
   }
 `;
 
@@ -82,15 +105,11 @@ export const Item = styled.article`
       }
     }
   }
-`;
 
-export const OrderSummary = styled.section`
-  header {
-    margin-bottom: 1.6rem;
-    font-weight: 500;
-    font-size: 1.4rem;
+  @media screen and (min-width: 1200px) {
+    padding: 2rem 0 2.4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  margin-bottom: 4.8rem;
 `;
 
 export const ButtonGroup = styled.section`
@@ -102,12 +121,12 @@ export const ButtonGroup = styled.section`
       props.disableButton ? '#d3d3d3' : 'var(--primary-dark-text)'};
     color: ${(props) =>
       props.disableButton ? 'rgba(0, 0, 0, 0.2)' : 'var(--primary-white-text)'};
-    border: ${(props) => props.disableButton && '1px solid rgba(0, 0, 0, 0.4)'};
+    border: ${(props) => props.disableButton && '1px solid rgba(0, 0, 0, 0.1)'};
     &:after {
       border: ${(props) =>
-        props.disableButton && '1px solid rgba(0, 0, 0, 0.4)'};
+        props.disableButton && '1px solid rgba(0, 0, 0, 0.2)'};
     }
-    pointer-events: ${props => props.disableButton ? 'none' : 'default'}
+    pointer-events: ${(props) => (props.disableButton ? 'none' : 'default')};
   }
   a:last-child {
     background-color: var(--primary-white-bg);
@@ -115,14 +134,6 @@ export const ButtonGroup = styled.section`
 
   /* MEDIA QUERIES */
   @media screen and (min-width: 1200px) {
-    flex-direction: row;
-    justify-content: space-between;
-    a:first-child {
-      margin: 0;
-      flex-basis: 49%;
-    }
-    a:last-child {
-      flex-basis: 49%;
-    }
-  } 
+    grid-area: buttonGroup;
+  }
 `;

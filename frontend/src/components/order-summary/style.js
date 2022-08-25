@@ -24,6 +24,7 @@ export const CostBreakdown = styled.section`
   }
   .total-cost {
     padding-top: 1.2rem;
+    margin: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: 500;
     font-size: 1.4rem;
