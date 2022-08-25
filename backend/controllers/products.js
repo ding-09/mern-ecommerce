@@ -1,5 +1,4 @@
 const Product = require('../models/product');
-const ExpressError = require('../ExpressError');
 
 module.exports.allProducts = async (req, res, next) => {
   try {
@@ -31,6 +30,6 @@ module.exports.productDetails = async (req, res, next) => {
     const product = await Product.findById(id);
     res.status(200).json(product);
   } catch (e) {
-    next(new ExpressError('Invalid product ID', 400));
+    next(e);
   }
 };

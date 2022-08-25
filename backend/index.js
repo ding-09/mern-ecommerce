@@ -7,7 +7,6 @@ const path = require('path');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db');
-const ExpressError = require('./ExpressError');
 const productsRoutes = require('./routes/products');
 
 // initialize express
@@ -33,11 +32,6 @@ if (process.env.NODE_ENV === 'production') {
     )
   );
 }
-
-// runs if no other routes are matched
-app.all('*', (req, res, next) => {
-  next(new ExpressError('Page Not Found!', 404));
-});
 
 // error handling
 app.use((err, req, res, next) => {

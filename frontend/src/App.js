@@ -34,7 +34,12 @@ const App = () => {
             <Route path='checkout' element={<Checkout />} />
             <Route path='success' element={<OrderConfirmation />} />
           </Route>
-          <Route path='*' element={<h1>??? 404</h1>} />
+          <Route
+            path='*'
+            element={
+              <h1 style={{ margin: '3.2rem auto' }}>Page not found :(</h1>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
