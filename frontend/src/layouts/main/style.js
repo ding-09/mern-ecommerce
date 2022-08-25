@@ -13,4 +13,12 @@ export const StyledMain = styled.main`
   @media screen and (min-width: 1024px) {
     margin: 4rem 5.6rem;
   }
+
+  @media screen and (min-width: 1200px) {
+    margin: 4rem 8rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    margin: 4rem 16rem;
+  }
 `;

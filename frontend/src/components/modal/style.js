@@ -12,6 +12,8 @@ export const ModalBg = styled.div`
   animation-name: openModal;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
+
+  /* KEYFRAMES */
   @keyframes openModal {
     from {
       opacity: 0;
@@ -19,6 +21,17 @@ export const ModalBg = styled.div`
     to {
       opacity: 1;
     }
+  }
+
+  /* MEDIA QUERIES  */
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    top: 5.5rem;
+    right: 7.2rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    right: 15.2rem;
   }
 `;
 
@@ -29,6 +42,13 @@ export const ModalContent = styled.section`
   /* MEDIA QUERIES */
   @media screen and (min-width: 768px) {
     padding: 2.4rem 2.4rem 4rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    right: 0;
+    min-width: 35%;
+    padding: 1.6rem 2rem 2.4rem;
   }
 `;
 
@@ -68,11 +88,21 @@ export const Header = styled.header`
       }
     }
   }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 2.4rem;
+  }
 `;
 
 export const CartSummary = styled.section`
   margin-bottom: 4rem;
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 3rem;
+  }
 `;
+
 
 export const CartItem = styled.article`
   display: flex;

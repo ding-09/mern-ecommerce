@@ -9,7 +9,13 @@ export const StyledNavLinks = styled.ul`
   /* MEDIA QUERIES */
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(4, auto);
-    grid-gap: 0 4rem;
-    gap: 0 4rem;
+    grid-gap: 0 4.8rem;
+    gap: 0 4.8rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 0 8rem;
+    gap: 0 8rem;
   }
 `;

@@ -29,7 +29,11 @@ export const ProductCards = styled.section`
 
   /* MEDIA QUERIES */
   @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, minmax(32%, 1fr));
     gap: 3.2rem 1.6rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    gap: 3.2rem 2.4rem;
   }
 `;

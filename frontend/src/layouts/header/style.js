@@ -14,6 +14,14 @@ export const StyledHeader = styled.header`
   @media screen and (min-width: 1024px) {
     padding: 1.6rem 5.6rem;
   }
+
+  @media screen and (min-width: 1200px) {
+    padding: 1.6rem 8rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    padding: 1.6rem 16rem;
+  }
 `;
 
 export const Nav = styled.nav`

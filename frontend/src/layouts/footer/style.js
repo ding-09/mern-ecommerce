@@ -44,7 +44,7 @@ export const GridContainer = styled.div`
       grid-area: navlinks;
       ul {
         display: inline-grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, auto);
         li {
           padding: 0;
         }
@@ -56,8 +56,18 @@ export const GridContainer = styled.div`
     }
   }
 
+  /* MEDIA QUERIES */
+
   @media screen and (min-width: 1024px) {
     padding: 6rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 6rem 8rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    padding: 6rem 16rem;
   }
 `;
 
