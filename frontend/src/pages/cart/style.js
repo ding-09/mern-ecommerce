@@ -112,4 +112,17 @@ export const ButtonGroup = styled.section`
   a:last-child {
     background-color: var(--primary-white-bg);
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+    a:first-child {
+      margin: 0;
+      flex-basis: 49%;
+    }
+    a:last-child {
+      flex-basis: 49%;
+    }
+  } 
 `;

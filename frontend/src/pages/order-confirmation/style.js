@@ -5,6 +5,12 @@ export const OrderConfirmationPage = styled.section`
   a {
     background-color: var(--primary-white-bg);
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    max-width: 50%;
+    margin: 0 auto 5.8rem;;
+  }
 `;
 
 export const Header = styled.header`
@@ -47,6 +53,7 @@ export const OrderInfo = styled.section`
         font-size: 1.6rem;
       }
       padding: 1.6rem 2.4rem;
+      margin-bottom: 3.2rem;
     }
   }
 `;

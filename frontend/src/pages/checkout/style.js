@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
-export const CheckoutPage = styled.section``;
+export const CheckoutPage = styled.section`
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1024px) {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 65%;
+    margin: 0 auto;
+  }
+`;
 
 export const Header = styled.header`
   margin-bottom: 2rem;
@@ -8,7 +19,17 @@ export const Header = styled.header`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    input {
+      font-size: 1.4rem;
+    }
+    .error {
+      font-size: 1.2rem;
+    }
+  }
+`;
 
 export const FormSection = styled.section`
   margin-bottom: 2.4rem;
@@ -31,6 +52,20 @@ export const PaymentSection = styled(FormSection)`
   }
   div:nth-child(2) {
     grid-area: cardNum;
+  }
+  div:nth-child(3) {
+    grid-area: exp;
+  }
+  div:nth-child(4) {
+    grid-area: cvv;
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    grid-template-areas:
+      'heading heading heading heading'
+      'cardNum cardNum exp cvv';
+    grid-template-columns: 2fr 1fr 1fr;
   }
 `;
 
@@ -86,5 +121,20 @@ export const ButtonGroup = styled.section`
   }
   a:last-child {
     background-color: var(--primary-white-bg);
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    > * {
+      flex-basis: 48%;
+      cursor: pointer;
+    }
+    button {
+      min-width: 0;
+      margin: 0;
+    }
   }
 `;

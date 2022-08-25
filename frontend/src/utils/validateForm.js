@@ -16,11 +16,11 @@ export const validateCard = (e) => {
   const cardError = emptyError.nextElementSibling;
 
   if (input.validity.valueMissing) {
-    emptyError.style.display = 'block';
+    emptyError.style.display = 'inline-block';
     cardError.style.display = 'none';
     input.style.borderColor = '#ff2f2f';
   } else if (input.validity.patternMismatch) {
-    cardError.style.display = 'block';
+    cardError.style.display = 'inline-block';
     emptyError.style.display = 'none';
     input.style.borderColor = '#ff2f2f';
   } else {
@@ -34,7 +34,7 @@ export const validateField = (e) => {
   const input = e.target;
   const errorMsg = input.nextElementSibling;
   if (input.validity.valueMissing) {
-    errorMsg.style.display = 'block';
+    errorMsg.style.display = 'inline-block';
     input.style.borderColor = '#ff2f2f';
   } else {
     errorMsg.style.display = 'none';
@@ -54,7 +54,7 @@ export const handleFormSubmit = (e) => {
     inputs.forEach((input) => {
       const errorMsg = input.nextElementSibling;
       if (!input.validity.valid) {
-        errorMsg.style.display = 'block';
+        errorMsg.style.display = 'inline-block';
         input.style.borderColor = '#ff2f2f';
       }
     });
