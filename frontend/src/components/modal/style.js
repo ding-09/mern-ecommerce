@@ -22,17 +22,6 @@ export const ModalBg = styled.div`
       opacity: 1;
     }
   }
-
-  /* MEDIA QUERIES  */
-  @media screen and (min-width: 1200px) {
-    position: absolute;
-    top: 5.5rem;
-    right: 7.2rem;
-  }
-
-  @media screen and (min-width: 1400px) {
-    right: 15.2rem;
-  }
 `;
 
 export const ModalContent = styled.section`
@@ -46,9 +35,9 @@ export const ModalContent = styled.section`
 
   @media screen and (min-width: 1200px) {
     position: absolute;
-    right: 0;
+    top: 5.5rem;
+    right: 15.5rem;
     min-width: 35%;
-    padding: 1.6rem 2rem 2.4rem;
   }
 `;
 
