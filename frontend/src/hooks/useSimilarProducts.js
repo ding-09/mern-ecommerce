@@ -6,7 +6,7 @@ const useSimilarProducts = (category, productId) => {
 
   const getSimilarProducts = async () => {
     const response = await axios.get(
-      `/products?category=${category}`
+      `http://localhost:8000/products?category=${category}`
     );
     const data = await response.data;
     const products = data.filter((product) => product._id !== productId);

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   CheckoutPage,
   Header,
@@ -40,7 +40,7 @@ const Checkout = () => {
   const billingLastNameRef = useRef(null);
   const billingAddressRef = useRef(null);
 
-  const { setCheckedOut } = useCart();
+  const { cart, setCheckedOut } = useCart();
 
   const navigate = useNavigate();
 
@@ -84,197 +84,206 @@ const Checkout = () => {
     return { shippingInfo, billingInfo };
   };
 
+  // do not show checkout if cart is empty
+  useEffect(() => {
+    cart.length === 0 && navigate('/cart');
+  }, []);
+
   return (
-    <CheckoutPage>
-      <Header>
-        <h2>Checkout</h2>
-      </Header>
-      <Form
-        method='post'
-        noValidate
-        onSubmit={handleSubmit}
-        name='checkoutForm'
-      >
-        <FormSection>
-          <h3>Contact information</h3>
-          <FormGroup>
-            <label htmlFor='email'>Email *</label>
-            <input
-              type='email'
-              name='email'
-              id='email'
-              required
-              onChange={validateEmail}
-              onBlur={validateEmail}
-              ref={emailRef}
-            />
-            <span className='error'>Please enter a valid email</span>
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor='phone'>Phone number *</label>
-            <input
-              type='tel'
-              name='phone'
-              id='phone'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-              ref={phoneRef}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-        </FormSection>
-        <FormSection>
-          <h3>Shipping address</h3>
-          <FormGroup>
-            <label htmlFor='first-name'>First name *</label>
-            <input
-              type='text'
-              name='first-name'
-              id='first-name'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-              ref={firstNameRef}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor='last-name'>Last name *</label>
-            <input
-              type='text'
-              name='last-name'
-              id='last-name'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-              ref={lastNameRef}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-          <FormGroup className='form-group'>
-            <label htmlFor='address'>Address *</label>
-            <input
-              type='text'
-              name='address'
-              id='address'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-              ref={addressRef}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-        </FormSection>
-        <FormSection>
-          <h3>Billing address</h3>
-          <BillingGroup>
-            <label htmlFor='billing'>Same as shipping address</label>
-            <input
-              type='checkbox'
-              name='billing'
-              id='billing'
-              defaultChecked
-              onChange={handleCheckbox}
-            />
-          </BillingGroup>
-          {/* show form if checkbox is unchecked */}
-          {showBilling && (
-            <div className='diff-billing'>
+    <>
+      {cart.length > 0 && (
+        <CheckoutPage>
+          <Header>
+            <h2>Checkout</h2>
+          </Header>
+          <Form
+            method='post'
+            noValidate
+            onSubmit={handleSubmit}
+            name='checkoutForm'
+          >
+            <FormSection>
+              <h3>Contact information</h3>
               <FormGroup>
-                <label htmlFor='billing-first-name'>First name *</label>
+                <label htmlFor='email'>Email *</label>
                 <input
-                  type='text'
-                  name='billing-first-name'
-                  id='billing-first-name'
+                  type='email'
+                  name='email'
+                  id='email'
+                  required
+                  onChange={validateEmail}
+                  onBlur={validateEmail}
+                  ref={emailRef}
+                />
+                <span className='error'>Please enter a valid email</span>
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor='phone'>Phone number *</label>
+                <input
+                  type='tel'
+                  name='phone'
+                  id='phone'
                   required
                   onChange={validateField}
                   onBlur={validateField}
-                  ref={billingFirstNameRef}
+                  ref={phoneRef}
+                />
+                <span className='error'>Please fill out this field</span>
+              </FormGroup>
+            </FormSection>
+            <FormSection>
+              <h3>Shipping address</h3>
+              <FormGroup>
+                <label htmlFor='first-name'>First name *</label>
+                <input
+                  type='text'
+                  name='first-name'
+                  id='first-name'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
+                  ref={firstNameRef}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
               <FormGroup>
-                <label htmlFor='billing-last-name'>Last name *</label>
+                <label htmlFor='last-name'>Last name *</label>
                 <input
                   type='text'
-                  name='billing-last-name'
-                  id='billing-last-name'
+                  name='last-name'
+                  id='last-name'
                   required
                   onChange={validateField}
                   onBlur={validateField}
-                  ref={billingLastNameRef}
+                  ref={lastNameRef}
+                />
+                <span className='error'>Please fill out this field</span>
+              </FormGroup>
+              <FormGroup className='form-group'>
+                <label htmlFor='address'>Address *</label>
+                <input
+                  type='text'
+                  name='address'
+                  id='address'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
+                  ref={addressRef}
+                />
+                <span className='error'>Please fill out this field</span>
+              </FormGroup>
+            </FormSection>
+            <FormSection>
+              <h3>Billing address</h3>
+              <BillingGroup>
+                <label htmlFor='billing'>Same as shipping address</label>
+                <input
+                  type='checkbox'
+                  name='billing'
+                  id='billing'
+                  defaultChecked
+                  onChange={handleCheckbox}
+                />
+              </BillingGroup>
+              {/* show form if checkbox is unchecked */}
+              {showBilling && (
+                <div className='diff-billing'>
+                  <FormGroup>
+                    <label htmlFor='billing-first-name'>First name *</label>
+                    <input
+                      type='text'
+                      name='billing-first-name'
+                      id='billing-first-name'
+                      required
+                      onChange={validateField}
+                      onBlur={validateField}
+                      ref={billingFirstNameRef}
+                    />
+                    <span className='error'>Please fill out this field</span>
+                  </FormGroup>
+                  <FormGroup>
+                    <label htmlFor='billing-last-name'>Last name *</label>
+                    <input
+                      type='text'
+                      name='billing-last-name'
+                      id='billing-last-name'
+                      required
+                      onChange={validateField}
+                      onBlur={validateField}
+                      ref={billingLastNameRef}
+                    />
+                    <span className='error'>Please fill out this field</span>
+                  </FormGroup>
+                  <FormGroup>
+                    <label htmlFor='billing-address'>Address *</label>
+                    <input
+                      type='text'
+                      name='billing-address'
+                      id='billing-address'
+                      required
+                      onChange={validateField}
+                      onBlur={validateField}
+                      ref={billingAddressRef}
+                    />
+                    <span className='error'>Please fill out this field</span>
+                  </FormGroup>
+                </div>
+              )}
+            </FormSection>
+            <PaymentSection>
+              <h3>Payment information</h3>
+              <FormGroup>
+                <label htmlFor='card-num'>Card number *</label>
+                <input
+                  type='text'
+                  name='card-num'
+                  id='card-num'
+                  required
+                  onChange={validateCard}
+                  onBlur={validateCard}
+                  pattern='[0-9]{14,16}'
+                  maxLength='16'
+                />
+                <span className='error'>Please fill out this field</span>
+                <span className='error invalid-card'>
+                  Please enter a valid card number
+                </span>
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor='card-exp'>Expiration date *</label>
+                <input
+                  type='text'
+                  name='card-exp'
+                  id='card-exp'
+                  maxLength='4'
+                  required
+                  onChange={validateField}
+                  onBlur={validateField}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
               <FormGroup>
-                <label htmlFor='billing-address'>Address *</label>
+                <label htmlFor='cvv'>CVV *</label>
                 <input
                   type='text'
-                  name='billing-address'
-                  id='billing-address'
+                  name='cvv'
+                  id='cvv'
                   required
                   onChange={validateField}
                   onBlur={validateField}
-                  ref={billingAddressRef}
                 />
                 <span className='error'>Please fill out this field</span>
               </FormGroup>
-            </div>
-          )}
-        </FormSection>
-        <PaymentSection>
-          <h3>Payment information</h3>
-          <FormGroup>
-            <label htmlFor='card-num'>Card number *</label>
-            <input
-              type='text'
-              name='card-num'
-              id='card-num'
-              required
-              onChange={validateCard}
-              onBlur={validateCard}
-              pattern='[0-9]{14,16}'
-              maxLength='16'
-            />
-            <span className='error'>Please fill out this field</span>
-            <span className='error invalid-card'>
-              Please enter a valid card number
-            </span>
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor='card-exp'>Expiration date *</label>
-            <input
-              type='text'
-              name='card-exp'
-              id='card-exp'
-              maxLength='4'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-          <FormGroup>
-            <label htmlFor='cvv'>CVV *</label>
-            <input
-              type='text'
-              name='cvv'
-              id='cvv'
-              required
-              onChange={validateField}
-              onBlur={validateField}
-            />
-            <span className='error'>Please fill out this field</span>
-          </FormGroup>
-        </PaymentSection>
-        <OrderSummary />
-        <ButtonGroup>
-          <BorderButton as='button' type='submit' text='Place Order' />
-          <BorderButton text='Back to cart' linkTo='/cart' />
-        </ButtonGroup>
-      </Form>
-    </CheckoutPage>
+            </PaymentSection>
+            <OrderSummary />
+            <ButtonGroup>
+              <BorderButton as='button' type='submit' text='Place Order' />
+              <BorderButton text='Back to cart' linkTo='/cart' />
+            </ButtonGroup>
+          </Form>
+        </CheckoutPage>
+      )}
+    </>
   );
 };
 

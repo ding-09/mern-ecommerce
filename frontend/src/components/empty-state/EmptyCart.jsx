@@ -1,9 +1,10 @@
 import React from 'react'
+import {Heading} from './style'
 
 const EmptyCart = () => {
   return (
     <section>
-      <h3>There are currently no items in your shopping bag!</h3>
+      <Heading>There are currently no items in your shopping bag!</Heading>
     </section>
   )
 }
