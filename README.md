@@ -6,7 +6,7 @@ View live website [here](https://bwse.herokuapp.com)
 
 ## Tech Stack
 
-**Client:** React
+**Client:** React, styled-components
 
 **Server:** Express.js, Node.js, MongoDB
 
