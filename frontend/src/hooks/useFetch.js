@@ -10,7 +10,7 @@ const useFetch = (category, location, productId) => {
 
     if (category) {
       const response = await axios.get(
-        `http://localhost:8000/products?category=${category}`
+        `/products?category=${category}`
       );
       const data = await response.data;
       setProductData(data);
@@ -21,11 +21,11 @@ const useFetch = (category, location, productId) => {
       const data = await response.data;
       setProductData(data);
     } else if (location.includes('sale')) {
-      const response = await axios.get(`http://localhost:8000/products/sale`);
+      const response = await axios.get(`/products/sale`);
       const data = await response.data;
       setProductData(data);
     } else {
-      const response = await axios.get(`http://localhost:8000/products`);
+      const response = await axios.get(`/products`);
       const data = await response.data;
       setProductData(data);
     }
