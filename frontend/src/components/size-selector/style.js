@@ -7,6 +7,11 @@ export const StyledSizeSelector = styled.div`
     margin-bottom: 1.2rem;
     font-weight: 500;
   }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 export const SizeGroup = styled.div`
@@ -32,5 +37,10 @@ export const FormGroup = styled.div`
     &:checked {
       border: 2px solid #1b1b1b;
     }
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-width: 1024px) {
+    margin-right: 1.8rem;
   }
 `;

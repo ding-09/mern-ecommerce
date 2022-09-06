@@ -18,7 +18,7 @@ export const ProductInfo = styled.section`
     font-weight: 500;
   }
   .product-desc {
-    margin: 2rem 0 3.2rem;
+    margin: 2rem 0 2.4rem;
   }
   button {
     background-color: var(--primary-dark-text);
@@ -47,7 +47,7 @@ export const ProductInfo = styled.section`
         margin: 0 0 2rem;
       }
       .product-desc {
-        margin: 2rem 0 4.8rem;
+        margin: 2rem 0 3.2rem;
       }
     }
   }
