@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from '../../assets/logos/logo.svg';
 import { StyledHeader, Nav, Menu, ItemCount } from './style';
 import { motion } from 'framer-motion';
 import { useCart } from '../../providers/CartProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   // toggle menu state
@@ -30,15 +30,22 @@ const Header = () => {
   // state to toggle between mobile and desktop menu
   const [showMobileMenu, setShowMobileMenu] = useState(true);
 
-  useEffect(() => {
+  const { key } = useLocation();
 
+  // close menu when URL changes
+  // detect by using location.key
+  useEffect(() => {
+    setMenu(false);
+  }, [key]);
+
+  useEffect(() => {
     // check initial width to correctly show the right nav
     const initialWidth = window.innerWidth;
     if (initialWidth >= 1024) {
       setShowMobileMenu(false);
     }
 
-    // handle resize 
+    // handle resize
     const handleResize = (e) => {
       let width = e.target.innerWidth;
       if (width >= 1024) {
@@ -74,7 +81,11 @@ const Header = () => {
           <Logo />
         </Link>
         {!showMobileMenu && <NavLinks />}
-        <Link to='cart' className='icon bag-icon' aria-label='Shopping bag icon'>
+        <Link
+          to='cart'
+          className='icon bag-icon'
+          aria-label='Shopping bag icon'
+        >
           <MdOutlineShoppingBag />
           {totalItems > 0 && <ItemCount>{totalItems}</ItemCount>}
         </Link>
