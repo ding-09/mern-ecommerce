@@ -8,9 +8,10 @@ const Size = ({ size, setSize }) => {
         type='radio'
         name='size'
         id={size}
-        onClick={(e) => {
+        onChange={(e) => {
           setSize(e.target.id);
         }}
+        defaultChecked={size === 'xs'}
       />
       <label htmlFor={size}>{size.toUpperCase()}</label>
     </FormGroup>
