@@ -6,6 +6,7 @@ import useFetch from '../../hooks/useFetch';
 import SimilarProducts from '../../components/similar-products';
 import CartModal from '../../components/modal';
 import { useCart } from '../../providers/CartProvider';
+import SizeSelector from '../../components/size-selector';
 
 const ProductDetails = () => {
   // read productId from url param and
@@ -31,6 +32,7 @@ const ProductDetails = () => {
               <h2 className='product-title'>{productData.title}</h2>
               <span className='product-price'>${productData.price}</span>
               <p className='product-desc'>{productData.description}</p>
+              <SizeSelector/>
               <BorderButton
                 as='button'
                 text='Add to bag'

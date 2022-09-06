@@ -9,19 +9,19 @@ const useFetch = (category, location, productId) => {
     // diff URL based on args
 
     if (category) {
-      const response = await axios.get(`/products?category=${category}`);
+      const response = await axios.get(`http://localhost:8000/products?category=${category}`);
       const data = await response.data;
       setProductData(data);
     } else if (productId) {
-      const response = await axios.get(`/products/${productId}`);
+      const response = await axios.get(`http://localhost:8000/products/${productId}`);
       const data = await response.data;
       setProductData(data);
     } else if (location.includes('sale')) {
-      const response = await axios.get(`/products/sale`);
+      const response = await axios.get(`http://localhost:8000/products/sale`);
       const data = await response.data;
       setProductData(data);
     } else {
-      const response = await axios.get(`/products`);
+      const response = await axios.get(`http://localhost:8000/products`);
       const data = await response.data;
       setProductData(data);
     }
