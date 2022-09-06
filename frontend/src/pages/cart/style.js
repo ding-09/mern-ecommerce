@@ -46,8 +46,8 @@ export const Item = styled.article`
   display: grid;
   grid-template-areas:
     'img product product product'
-    'img btn btn btn'
-    'img . . .'
+    'img size . .'
+    'img btn . .'
     'img selector selector price';
   grid-template-columns: 10rem repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -64,6 +64,9 @@ export const Item = styled.article`
     grid-area: product;
     font-size: 1.4rem;
     font-weight: 500;
+  }
+  .size {
+    opacity: 0.6;
   }
   .remove-btn {
     grid-area: btn;

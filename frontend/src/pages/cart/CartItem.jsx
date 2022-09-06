@@ -3,12 +3,12 @@ import { Item } from './style';
 import { useCart } from '../../providers/CartProvider';
 
 const CartItem = ({ product }) => {
-  const { title, price, qty, _id, image } = product;
+  const { title, price, qty, _id, image, size } = product;
 
   const { updateProduct, removeProduct } = useCart();
 
   const handleChange = (e) => {
-    const value = parseInt(e.target.value)
+    const value = parseInt(e.target.value);
 
     // adjust qty in cart context
     updateProduct(_id, value);
@@ -17,12 +17,10 @@ const CartItem = ({ product }) => {
   return (
     <Item>
       <figure>
-        <img
-          src={image}
-          alt={title}
-        />
+        <img src={image} alt={title} />
       </figure>
       <p className='product-name'>{title}</p>
+      <span className='size'>Size: {size.toUpperCase()}</span>
       <button
         className='remove-btn'
         onClick={() => {
@@ -45,7 +43,9 @@ const CartItem = ({ product }) => {
           <option value='3'>3</option>
           <option value='4'>4</option>
           <option value='5'>5</option>
-          <option value='5+' disabled>5 +</option>
+          <option value='5+' disabled>
+            5 +
+          </option>
         </select>
       </div>
       <span className='product-price'>${(price * qty).toFixed(2)}</span>
