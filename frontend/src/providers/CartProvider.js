@@ -59,13 +59,16 @@ const CartProvider = ({ children }) => {
   const addProduct = (product) => {
     // helper function
     const checkIfProductExists = () => {
-      // return false if cart does not even have any items
+      // return false if cart does not have any items
       if (cart.length === 0) {
         return false;
       }
 
       // if cart has items, check if it contains product
-      return cart.some((cartProduct) => cartProduct._id === product._id);
+      return (
+        cart.some((cartProduct) => cartProduct._id === product._id) &&
+        cart.some((cartProduct) => cartProduct.size === product.size)
+      );
     };
 
     // if product exists, update quantity by 1

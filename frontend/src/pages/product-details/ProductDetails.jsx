@@ -20,6 +20,15 @@ const ProductDetails = () => {
   // state to manage modal
   const [modal, showModal] = useState(false);
 
+  // get size selection
+  const [size, setSize] = useState(null);
+
+  // handle addToBag
+  const addToBag = () => {
+    productData.size = size;
+    addProduct(productData);
+  };
+
   return (
     <>
       {productData && (
@@ -32,12 +41,12 @@ const ProductDetails = () => {
               <h2 className='product-title'>{productData.title}</h2>
               <span className='product-price'>${productData.price}</span>
               <p className='product-desc'>{productData.description}</p>
-              <SizeSelector/>
+              <SizeSelector setSize={setSize} />
               <BorderButton
                 as='button'
                 text='Add to bag'
                 onClick={() => {
-                  addProduct(productData);
+                  addToBag();
                   showModal(true);
                 }}
               />
@@ -50,7 +59,10 @@ const ProductDetails = () => {
               productId={productId}
             />
           </SuggestedItems>
-          <CartModal modal={modal} showModal={showModal} />
+          <CartModal
+            modal={modal}
+            showModal={showModal}
+          />
         </ProductDetailsPage>
       )}
     </>

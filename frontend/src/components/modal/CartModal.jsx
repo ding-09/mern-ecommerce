@@ -12,8 +12,9 @@ import { CgClose } from 'react-icons/cg';
 import { BsCheckSquareFill } from 'react-icons/bs';
 import { useCart } from '../../providers/CartProvider';
 
-const CartModal = ({ modal, showModal }) => {
+const CartModal = ({ modal, showModal, productData }) => {
   const { cart } = useCart();
+  const cartProduct = cart.at(-1);
 
   const modalRef = useRef(null);
 
@@ -40,18 +41,19 @@ const CartModal = ({ modal, showModal }) => {
               />
             </Header>
             <CartSummary>
-              {cart.map((cartProduct, index) => (
-                <CartItem key={index}>
-                  <figure>
-                    <img src={cartProduct.image} alt={cartProduct.title} />
-                  </figure>
-                  <div className='item-details'>
-                    <h3>{cartProduct.title}</h3>
-                    <span className='quantity'>Qty: {cartProduct.qty}</span>
-                    <span className='price'>${cartProduct.price}</span>
-                  </div>
-                </CartItem>
-              ))}
+              <CartItem>
+                <figure>
+                  <img src={cartProduct.image} alt={cartProduct.title} />
+                </figure>
+                <div className='item-details'>
+                  <h3>{cartProduct.title}</h3>
+                  <span className='quantity'>Qty: {cartProduct.qty}</span>
+                  <span className='size'>
+                    Size: {cartProduct.size.toUpperCase()}
+                  </span>
+                  <span className='price'>${cartProduct.price}</span>
+                </div>
+              </CartItem>
             </CartSummary>
             <ButtonGroup>
               <BorderButton text='Checkout' linkTo='/checkout' />

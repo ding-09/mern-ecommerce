@@ -103,8 +103,14 @@ export const CartItem = styled.article`
     margin-left: 1.6rem;
     display: flex;
     flex-direction: column;
-    .quantity {
+    h3 {
+      margin-bottom: 0.2rem;
+    }
+    .size {
       margin-bottom: auto;
+    }
+    .size, .quantity {
+      opacity: 0.6;
     }
   }
 
