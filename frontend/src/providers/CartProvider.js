@@ -65,10 +65,7 @@ const CartProvider = ({ children }) => {
       }
 
       // if cart has items, check if it contains product
-      return (
-        cart.some((cartProduct) => cartProduct._id === product._id) &&
-        cart.some((cartProduct) => cartProduct.size === product.size)
-      );
+      return cart.some((cartProduct) => cartProduct._id === product._id);
     };
 
     // if product exists, update quantity by 1

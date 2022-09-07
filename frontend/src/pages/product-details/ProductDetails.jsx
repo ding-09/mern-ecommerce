@@ -21,7 +21,7 @@ const ProductDetails = () => {
   const [modal, showModal] = useState(false);
 
   // get size selection
-  const [size, setSize] = useState(null);
+  const [size, setSize] = useState('xs');
 
   // handle addToBag
   const addToBag = () => {
